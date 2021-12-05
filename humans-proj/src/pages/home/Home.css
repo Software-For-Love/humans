@@ -13,6 +13,50 @@
     width: 100%;
     height: auto;
     transition: transform .4s ease-in-out;
+    overflow: scroll;
+}
+
+#main-content {
+    /* border: solid 3px black; */
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    margin-top: 3rem;
+}
+
+#titles-and-buttons {
+    /* border: solid 3px white; */
+    display:grid;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+}
+
+#subpage-header {
+    /* border: solid 3px white; */
+    color: white;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    float: left;
+    margin: 0;
+    height: min-content;
+}
+
+#play-and-pause {
+    /* border: solid 3px white; */
+    width: min-content;
+    height: min-content;
+    margin-bottom: 0;
+    position: relative;
+    display: inline-flex;
+}
+
+#play-and-pause-btn {
+    color: white;
+    font-size: xx-large;
+    cursor: pointer;
 }
 
 #home-frame {
@@ -25,19 +69,6 @@
     width: min-content;
     align-content: flex-start;
     top: 11.6vh;
-}
-
-#play-and-pause {
-    /* border: solid 2px black; */
-    display: inline-flex;
-    position: relative;
-    margin-left: 2vw;
-}
-
-#play-and-pause-btn {
-    color: white;
-    font-size: xx-large;
-    cursor: pointer;
 }
 
 #main-page-footer {
@@ -148,18 +179,19 @@
 }
 
 .pindicator .icon {
-    border: 2px var(--color) solid;
+    border: 4px var(--color) solid;
     background-color: var(--color);
     border-radius: 100%;
     cursor: pointer;
     font-size: 1.5rem;
     display: inline-block;
-    height: 1.1em;
-    width: 1.1em;
+    height: 0.7em;
+    width: 0.7em;
     line-height: 2;
     text-align: center;
     transition: background-color .25s ease-out;
 }
+
 .pindicator .text {
     color: white;
     font-size: 18px;

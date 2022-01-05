@@ -67,7 +67,7 @@ export default class SubmissionForm extends Component {
                 case 'description':
                     errors.descriptionError = value.length < 1 ? '*Please enter description!':'';
                     break;
-                    case 'canContact':
+                case 'canContact':
                     errors.checkboxError = value ? '':'*Please check checkbox!';
                     break;
                 default:
@@ -173,7 +173,7 @@ export default class SubmissionForm extends Component {
                             type="checkbox"
                             id="can-contact-checkbox"
                             name="canContact"
-                            required
+                            onChange={this.handleChange} required
                         />
                         <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted.</label>
                     </li>

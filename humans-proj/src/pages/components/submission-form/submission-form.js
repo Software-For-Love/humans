@@ -173,8 +173,8 @@ export default class SubmissionForm extends Component {
                             type="checkbox"
                             id="can-contact-checkbox"
                             name="canContact"
-                            onChange={this.handleChange}
-                            checked={this.state.canContact} required
+                            /* onChange={this.handleChange}
+                            checked={this.state.canContact}  */required
                         />
                         <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted.</label>
                     </li>

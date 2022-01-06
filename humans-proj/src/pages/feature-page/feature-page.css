@@ -1,5 +1,5 @@
 #feature-page {
-    background-color: coral;
+    background: url(../../../static/images/home4-background.png);
     background-size: cover;
     position: fixed;
     top: 0;
@@ -8,4 +8,552 @@
     min-width: 100%;
     width: 100%;
     height: auto;
+    overflow-y: auto;
+}
+
+
+.button{
+    cursor: pointer;
+}
+
+#afbar{
+    width:100%;
+    height:5%;
+    background-color:white;
+    opacity:0.4;
+    margin-top: 10px;
+    margin-left:0px;
+    z-index:-1;
+    position:absolute;
+}
+
+.dropdown{
+    display: inline-block;
+    top:185px;
+    position:absolute;
+    margin-left:-1180px;
+}
+
+.dropdown_content{
+    display:none;
+    position:absolute;
+    width:100px;
+    overflow: auto;
+    color:white;
+    font-size:20px;
+    text-align:center;
+    padding:5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown_content{
+    display:block;
+    background-color: black;
+}
+
+#months{
+    color:white;
+    font-size: 20px;
+    text-align: center;
+}
+
+input[type="text"], textarea {
+    background-color: transparent;
+    border-color:transparent;
+    height:30px;
+    width:400px;
+    background-image: url(../../../static/images/mag.png);
+    background-repeat:no-repeat;
+    background-position: 5px -1px;
+    padding-left:40px;
+}
+
+
+::placeholder{
+    color:white;
+    font-size:20px;
+}
+
+#search_bar{
+    margin-top:14px;
+    margin-left:200px;
+}
+
+#mag{
+    margin-top:90px;
+    margin-left:-1070px;
+    position:absolute;
+}
+
+#m1{
+    color:#F6B6B6;
+    font-family: Red Hat Display;
+    font-size:40px;
+    font-weight:700;
+    position:absolute;
+    margin-left:5%;
+    z-index:-1;
+}
+
+#m2{
+    color:#F6B6B6;
+    font-family: Red Hat Display;
+    font-size:40px;
+    font-weight:700;
+    position:absolute;
+    margin-left:47%; 
+    z-index:-1;
+}
+
+.pic1{
+    position:absolute;
+    margin-left:5%;
+    margin-top:7%;
+}
+
+#img1{
+    width:250px;
+    height:400px;
+    position:absolute;
+    z-index:-1;
+}
+
+#details1{
+    width:250px;
+    height:400px;
+    background-color:black;
+    opacity:0.7;
+    margin-top:-5px;
+    margin-left:6px;
+    position:absolute;
+    display:none;
+}
+
+.pic1des{
+    position:absolute;
+    color:white;
+    width:200px;
+    margin-left:40px;
+    font-family: Red Hat Display;
+    margin-top:40px;
+    display:none;
+
+}
+
+#pic1head{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    margin-left:40px;
+    width:200px;
+    display:none;
+}
+
+#insta_pic{
+    height:20px;
+    width:20px;
+    cursor: pointer;
+}
+
+#facebook_pic{
+    height:21px;
+    width:10px;
+    margin-left:20px;
+    cursor: pointer;
+}
+
+#twitter_pic{
+    height:20px;
+    width:20px;
+    margin-left:20px;
+    cursor: pointer;
+}
+#internet_pic{
+    height:20px;
+    width:20px;
+    margin-left:20px;
+    cursor: pointer;
+}
+
+#all_medias1{
+    background-color:white;
+    position:absolute;
+    border-radius: 40px;
+    width:200px;
+    height:23px;
+    margin-top:30px;
+}
+
+.pic1:hover .pic1des{
+    display:block;
+}
+
+.pic1:hover #pic1head{
+    display:block;
+}
+
+.pic1:hover #details1{
+    display:block;
+}
+
+.pic1:hover #name1{
+    display:none;
+}
+
+#namerec1{
+    width:250px;
+    height:50px;
+    background-color:black;
+    margin-top:390px;
+    margin-left:6px;
+    position:absolute;
+}
+
+#name1{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    width:200px;
+    margin-left:45px;
+    margin-top:400px;
+}
+
+
+.pic2{
+    position:absolute;
+    margin-left:23%;
+    margin-top:7%;
+}
+
+#img2{
+    width:250px;
+    height:400px;
+    position:absolute;
+    z-index:-1;
+}
+
+#details2{
+    width:250px;
+    height:400px;
+    background-color:black;
+    opacity:0.7;
+    margin-top:-5px;
+    margin-left:6px;
+    position:absolute;
+    display:none;
+}
+
+.pic2des{
+    position:absolute;
+    color:white;
+    width:200px;
+    margin-left:40px;
+    font-family: Red Hat Display;
+    margin-top:40px;
+    display:none;
+
+}
+
+#pic2head{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    margin-left:40px;
+    width:200px;
+    display:none;
+}
+
+
+#all_medias2{
+    background-color:white;
+    position:absolute;
+    border-radius: 40px;
+    width:200px;
+    height:23px;
+    margin-top:30px;
+}
+
+.pic2:hover .pic2des{
+    display:block;
+}
+
+.pic2:hover #pic2head{
+    display:block;
+}
+
+.pic2:hover #details2{
+    display:block;
+}
+
+.pic2:hover #name2{
+    display:none;
+}
+
+#namerec2{
+    width:250px;
+    height:50px;
+    background-color:black;
+    margin-top:390px;
+    margin-left:6px;
+    position:absolute;
+}
+
+#name2{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    width:200px;
+    margin-left:45px;
+    margin-top:400px;
+}
+
+.pic3{
+    position:absolute;
+    margin-left:47%;
+    margin-top:7%;
+}
+
+#img3{
+    width:250px;
+    height:400px;
+    position:absolute;
+    z-index:-1;
+}
+
+#details3{
+    width:250px;
+    height:400px;
+    background-color:black;
+    opacity:0.7;
+    margin-top:-5px;
+    margin-left:6px;
+    position:absolute;
+    display:none;
+}
+
+.pic3des{
+    position:absolute;
+    color:white;
+    width:200px;
+    margin-left:40px;
+    font-family: Red Hat Display;
+    margin-top:40px;
+    display:none;
+
+}
+
+#pic3head{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    margin-left:40px;
+    width:200px;
+    display:none;
+}
+
+
+#all_medias3{
+    background-color:white;
+    position:absolute;
+    border-radius: 40px;
+    width:200px;
+    height:23px;
+    margin-top:30px;
+}
+
+.pic3:hover .pic3des{
+    display:block;
+}
+
+.pic3:hover #pic3head{
+    display:block;
+}
+
+.pic3:hover #details3{
+    display:block;
+}
+
+.pic3:hover #name3{
+    display:none;
+}
+
+#namerec3{
+    width:250px;
+    height:50px;
+    background-color:black;
+    margin-top:390px;
+    margin-left:6px;
+    position:absolute;
+}
+
+#name3{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    width:200px;
+    margin-left:45px;
+    margin-top:400px;
+}
+
+.pic4{
+    position:absolute;
+    margin-left:65%;
+    margin-top:7%;
+}
+
+#img4{
+    width:250px;
+    height:400px;
+    position:absolute;
+    z-index:-1;
+}
+
+#details4{
+    width:250px;
+    height:400px;
+    background-color:black;
+    opacity:0.7;
+    margin-top:-5px;
+    margin-left:6px;
+    position:absolute;
+    display:none;
+}
+
+.pic4des{
+    position:absolute;
+    color:white;
+    width:200px;
+    margin-left:40px;
+    font-family: Red Hat Display;
+    margin-top:40px;
+    display:none;
+
+}
+
+#pic4head{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    margin-left:40px;
+    width:200px;
+    display:none;
+}
+
+
+#all_medias4{
+    background-color:white;
+    position:absolute;
+    border-radius: 40px;
+    width:200px;
+    height:23px;
+    margin-top:30px;
+}
+
+.pic4:hover .pic4des{
+    display:block;
+}
+
+.pic4:hover #pic4head{
+    display:block;
+}
+
+.pic4:hover #details4{
+    display:block;
+}
+
+.pic4:hover #name4{
+    display:none;
+}
+
+#namerec4{
+    width:250px;
+    height:50px;
+    background-color:black;
+    margin-top:390px;
+    margin-left:6px;
+    position:absolute;
+}
+
+#name4{
+    font-weight: 500;
+    font-size:25px;
+    position:absolute;
+    color:white;
+    font-family: Red Hat Display;
+    line-height: 33.07px;
+    width:200px;
+    margin-left:45px;
+    margin-top:400px;
+}
+
+#arrow1{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    margin-left:93%;
+    margin-top:20%;
+    position:absolute;
+    cursor: pointer;
+}
+
+#arrow2{
+    color:rgba(255, 255, 255, 0.699);
+    font-size:20px;
+    font-weight:bold;
+    margin-left:92%;
+    margin-top:20.4%;
+    position:absolute;
+    cursor:pointer;
+}
+
+#nominatebar{
+    width:100%;
+    height:250px;
+    background-color:black;
+    opacity:0.5;
+    margin-top:600px;
+    margin-left:6px;
+    position:absolute;
+}
+
+.nominatebartxt{
+    color:white;
+    font-family: Red Hat Display;
+    font-size:25px;
+    width:600px;
+    text-align:center;
+    margin-top:42.5%;
+    margin-left:32.5%;
+    position:absolute;
+}
+
+#nominate_button{
+    cursor: pointer;
+    background-color:white;
+    border-radius: 40px;
+    width:80px;
+    height:30px;
+    position:absolute;
+    margin-left:-30px;
 }

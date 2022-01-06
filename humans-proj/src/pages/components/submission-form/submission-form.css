@@ -44,6 +44,7 @@ textarea {
     color: #FFFFFF;
     resize: none;
     background: rgba(255, 255, 255, 0.17);
+    background-image: none;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 33px;

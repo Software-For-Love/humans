@@ -103,11 +103,12 @@ export default function FeaturePage() {
             <p><button type="button" id="arrow1">&gt;</button></p>
             <p><button type="button" id="arrow2">&gt;</button></p>
 
-            <div class="square" id="nominatebar"></div>
+            <div class="square" id="nominatebar">
             <div class="nominatebartxt">
                 <p> Didn't see your favourite human rights activist or social groups?</p>
                 <p>Write us a recommendation!</p>
                 <button type="button" id="nominate_button">Nominate</button>
+            </div>
             </div>
             <Footer />
         </div>

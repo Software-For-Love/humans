@@ -74,9 +74,19 @@ export default function Home() {
             setIndex(prevIndex => (prevIndex === 3) ? 0 : prevIndex + 1), 4000);
     }, []);
 
+    // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
+    const scrollRedirect = (e) => {
+        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+        if (bottom) { 
+            window.location.replace('/feature-page/feature-page/');
+        }
+     }
+
     return (
-        <div id="home-page" style={{ backgroundImage: `url(${background[index]})` }}>
+
+        <div id="home-page" onScroll={scrollRedirect} style={{ backgroundImage: `url(${background[index]})`, overflowY: 'scroll' }}>
             <Header color={colors[index]} />
+            
             <div id="home-frame">
 
                 {/* PAUSE AND PLAY BUTTONS */}

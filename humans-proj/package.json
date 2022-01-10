@@ -17,6 +17,7 @@
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.16.13",
     "gatsby": "^3.13.1",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-native-web": "^0.17.5",

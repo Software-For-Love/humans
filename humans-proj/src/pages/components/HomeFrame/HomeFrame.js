@@ -30,7 +30,14 @@ export default function HomeFrame(props) {
     return (
         <div id="container">
             <div id="subpage-info">
-                <p id="subpage-header">{subpageInfo[thisIndex][0]}</p>
+                {/* <p id="subpage-header">{subpageInfo[thisIndex][0]}</p>
+
+                PAUSE AND PLAY BUTTONS
+                <div id="play-and-pause">
+                    <button type="button" id="play-and-pause-btn" style={{ fontWeight: "revert", fontSize: "36px" }}>▷</button>
+                    <button type="button" id="play-and-pause-btn" style={{ transform: "rotate(90deg)", fontWeight: "bolder", fontSize: "36px" }}>=</button>
+                </div> */}
+
                 <p id="subpage-description" style={{ color: props.color }}>{subpageInfo[thisIndex][1]}</p>
             </div>
             <div id="image">

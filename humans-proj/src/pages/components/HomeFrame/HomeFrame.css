@@ -12,30 +12,17 @@
     display: inline-flex;
 }
 
-#subpage-info {
-    /* border: solid 3px white; */
-    display: grid;
-    overflow: auto;
-    width: 39vw;
-}
-
-#subpage-header {
-    color: white;
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    float: left;
-}
-
 #subpage-description {
+    /* border: solid 3px white; */
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
     font-size: 70px;
     color: #FF98B1;
     float: left;
-    margin-top: 0%;
+    /* margin-bottom: 0; */
+    margin-top: 8rem;
+    bottom: 0;
 }
 
 #image {

@@ -88,11 +88,19 @@ export default function Home() {
         setIsActive(!isActive);
     }
 
-    return (
-        <div id="home-page" style={{ backgroundImage: `url(${pageInfo[index][2]})` }} >
+    // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
+    const scrollRedirect = (e) => {
+        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+        if (bottom) { 
+            window.location.replace('/feature-page/feature-page/');
+        }
+     }
 
-            {/* HEADER */}
+    return (
+
+        <div id="home-page" onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
             <Header color={pageInfo[index][1]} />
+            
 
             <div id="home-frame">
                 {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}

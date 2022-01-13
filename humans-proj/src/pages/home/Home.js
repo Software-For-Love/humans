@@ -79,7 +79,6 @@ export default function Home() {
             }, 1000);
         } else if (!isActive && seconds !== 0) {
             clearInterval(interval);
-            setTimeout(() => toggle(), 20000)
         }
         return () => clearInterval(interval);
     }, [isActive, seconds]);

@@ -26,8 +26,10 @@ export default function AboutPage() {
             <section className="image-section">
                 <div className="image-slider">
 
-                    <button className = "arrow-button"><h1 className = "small-arrow">&lt;</h1></button>
-                    <button className = "arrow-button"><h1 className = "big-arrow">&lt;</h1></button>
+                    <button className="arrow-button" onClick={prevImage}>
+                        <h1 className="small-arrow">&lt;</h1>
+                        <h1 className="big-arrow">&lt;</h1>
+                    </button>
 
                     <div className="image-overlap">
                         <Carousel ref={carousel} dots={false} autoplay>
@@ -44,11 +46,14 @@ export default function AboutPage() {
                         <img className="box" src={photo2} alt="" />
                     </div>
 
-                    <button className = "arrow-button"><h1 className = "big-arrow">&gt;</h1></button>
-                    <button className = "arrow-button"><h1 className = "small-arrow">&gt;</h1></button>
+                    <button className="arrow-button" onClick={nextImage}>
+                        <h1 className="big-arrow">&gt;</h1>
+                        <h1 className="small-arrow">&gt;</h1>
+                    </button>
 
                 </div>
             </section>
+
 
             <section className="questions">
                 <div className="first-row">

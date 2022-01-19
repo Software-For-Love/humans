@@ -43,14 +43,14 @@ export default class SubmissionForm extends Component {
         console.log(this.state.errors)
     }
     handleChange(event) {
-        const { name, value, type, checked } = event.target
+        const { name, value,id, type} = event.target
         type === "checkbox" ?
             this.setState({
-                [name]: checked
+                 [name]: id.checked 
             })
-            :
+             :
             this.setState({
-                [name]: value
+                [name]: false
             })
             let errors = this.state.errors;
             switch(name){
@@ -68,7 +68,7 @@ export default class SubmissionForm extends Component {
                     errors.descriptionError = value.length < 1 ? '*Please enter description!':'';
                     break;
                 case 'canContact':
-                    errors.checkboxError = value ? '':'*Please check checkbox!';
+                    errors.checkboxError = id.checked ? '':'*Please check checkbox!';
                     break;
                 default:
                     break;
@@ -131,7 +131,6 @@ export default class SubmissionForm extends Component {
                         value={this.state.firstName}
                         onChange={this.handleChange} required
                     />
-                    <div className = "error-message">{this.state.errors.firstNameError}</div>
                     <br style={{ lineHeight: "2" }} />
 
                     <label>Last Name</label>
@@ -142,18 +141,19 @@ export default class SubmissionForm extends Component {
                         value={this.state.lastName}
                         onChange={this.handleChange} required
                     />
-                    <div className = "error-message">{this.state.errors.lastNameError}</div>
+                 
                     <br style={{ lineHeight: "2" }} />
 
-                    <label>Email</label>
+                    <label htmlFor="email">Email</label>
                     <br style={{ lineHeight: "2" }} />
-                    <textarea
+                    <input id = "email" 
                         name="email"
                         input type="email"
                         value={this.state.email}
-                        onChange={this.handleChange} required
-                    />
-                    <div className = "error-message">{this.state.errors.emailError}</div>
+                        onChange={this.handleChange} 
+                        required pattern= "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"/>
+                    
+                
                     <br style={{ lineHeight: "2" }} />
 
                     <label>Description</label>
@@ -165,19 +165,21 @@ export default class SubmissionForm extends Component {
                         value={this.state.descripton}
                         onChange={this.handleChange} required
                     />
-                    <div className = "error-message">{this.state.errors.descriptionError}</div>
+        
                     <br style={{ lineHeight: "2" }} />
 
-                    <li style={{ listStyleType: "none" }}>
+                    {/* <div className="form-group form-checkbox"> */}
                         <input
                             type="checkbox"
                             id="can-contact-checkbox"
                             name="canContact"
+                            //checked={this.state.canContact}
+                            value={this.state.canContact}
                             onChange={this.handleChange} required
                         />
                         <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted.</label>
-                    </li>
-                    <div className = "error-message">{this.state.errors.checkboxError}</div>
+                    {/* </div> */}
+                  
                     <br style={{ lineHeight: "2" }} />
                     <button id="submit-button" input type="submit" onClick = {this.onClickSubmit}>SUBMIT</button>
                 </form>

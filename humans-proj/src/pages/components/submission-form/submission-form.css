@@ -50,7 +50,22 @@ textarea {
     border-radius: 33px;
     margin-bottom: 1vh;
 }
-
+#email {
+    width: 26.38vw;
+    height: 4vh;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16.5px;
+    padding: 0.6vh 1vw 0vh 1vw;
+    color: #FFFFFF;
+    resize: none;
+    background: rgba(255, 255, 255, 0.17);
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 33px;
+    margin-bottom: 1vh;
+}
 #description-text-input {
     font-family: Red Hat Display;
     font-style: normal;

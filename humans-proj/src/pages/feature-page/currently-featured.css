@@ -1,13 +1,12 @@
 #curr-feature-page {
     background: url("../../../static/images/cf_background.png");;
-    background-size: cover;
     position: fixed;
+    background-size: cover;
     top: 0;
     left: 0;
-    min-height: 100%;
-    min-width: 100%;
+    height: 100%;
     width: 100%;
-    height: auto;
+    overflow-y: scroll;
 }
 
 #short-description {
@@ -21,7 +20,7 @@
 }
 
 #featured-info {
-    margin-left: 100px;
+    margin-left: 120px;
     margin-top: 100px;
     display: flex;
     flex-flow: nowrap;
@@ -35,13 +34,11 @@
 #Back_btn{
     background: rgb(255, 255, 255);
     border-radius: 40px;
-    position:absolute;
     cursor:pointer;
     font-family: Red Hat Display;
     font-weight: bold;
     font-size: 15px;
-    margin-left:-10%;
-    top: 12%;
+    margin-left: 8%;
     width:100px;
     height:45px;
 }
@@ -54,8 +51,8 @@
     margin-top: 100.9px;
     margin-left:340.18px;
     position:absolute;
-    /* -webkit-animation:rotate1 30s infinite;
-    animation: rotate1 30s infinite; */
+    -webkit-animation:rotate1 30s infinite linear;
+    animation: rotate1 30s infinite linear;
 }
 
 #square2{
@@ -71,17 +68,15 @@
 }
 
 @-webkit-keyframes rotate1{
-    0% {transform:rotate(0deg);}
-    33% {transform:rotate(108deg);}
-    66% {transform:rotate(216deg);}
-    100% {transform:rotate(360deg);}
+    33% {transform:rotate(95deg);}
+    66% {transform:rotate(45deg);}
+    100% {transform:rotate(20deg);}
 }
   
 @keyframes rotate1{
-    0% {transform:rotate(0deg);}
-    33% {transform:rotate(108deg);}
-    66% {transform:rotate(216deg);}
-    100% {transform:rotate(360deg);}
+    33% {transform:rotate(95deg);}
+    66% {transform:rotate(45deg);}
+    100% {transform:rotate(20deg);}
 }
 
 @-webkit-keyframes rotate2{
@@ -149,7 +144,7 @@
     font-size:22px;
     color:white;
     text-align:left;
-    margin-top: 0%;
+    margin-top: 2%;
 }
 
 #worth{
@@ -165,7 +160,7 @@
     font-size:22px;
     color:white;
     text-align:left;
-    margin-top: 0%;
+    margin-top: 2%;
 }
 
 #LG{
@@ -173,7 +168,7 @@
     font-size:22px;
     color:white;
     text-align:left;
-    margin-top: 0%;
+    margin-top: 2%;
 }
 
 .para {
@@ -188,21 +183,46 @@
 }
 
 @media only screen and (min-width : 320px) {
-
+    #square1, #square2, #main_pic {
+        margin-left: 50px;
+    }
+    #short-description {
+        flex-flow: wrap;
+    }
 }
 
 @media only screen and (min-width : 480px) {
-
+    #square1, #square2, #main_pic {
+        margin-left: 90px;
+    }
+    #short-description {
+        flex-flow: wrap;
+    }
 }
 
 @media only screen and (min-width : 768px) {
-
+    #square1, #square2, #main_pic {
+        margin-left: 140px;
+    }
+    #short-description {
+        flex-flow: wrap;
+    }
 }
 
 @media only screen and (min-width : 992px) {
-
+    #square1, #square2, #main_pic {
+        margin-left: 200px;
+    }
+    #short-description {
+        flex-flow: nowrap;
+    }
 }
 
 @media only screen and (min-width : 1200px) {
-
+    #square1, #square2, #main_pic {
+        margin-left: 330px;
+    }
+    #short-description {
+        flex-flow: nowrap;
+    }
 }

@@ -93,7 +93,7 @@
 
 #main_pic{
     height:340px;
-    width:380px;
+    width:370px;
     position:relative;
     margin-top:90.99px;
     margin-left:330px;
@@ -132,10 +132,10 @@
 }
 
 #all_medias{
-    background-color: rgb(196, 78, 117);
+    background-color: white;
     border-radius: 40px;
-    width:250px;
-    height:55px;
+    width:200px;
+    height:50px;
     margin-bottom: 1rem;
 }
 

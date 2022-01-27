@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import Header from "../components/Header/Header";
 import HomeFrame from "../components/HomeFrame/HomeFrame";
@@ -60,6 +60,8 @@ export default function Home() {
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(true);
 
+    const homePage = useRef(null);
+
     // CHANGE SECONDS
     useEffect(() => {
         setInterval(() =>
@@ -90,16 +92,27 @@ export default function Home() {
     // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
     const scrollRedirect = (e) => {
         const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-        if (bottom) { 
+
+        // Check if scrollTop still exists, otherwise scrolling is not available
+        // Should then be handled by wheelRedirect instead.
+        if (bottom && e.target.scrollTop != 0) { 
             window.location.replace('/feature-page/feature-page/');
         }
-     }
+    }
+
+    // Redirect feature in case the page is max height.
+    const wheelRedirect = (e) => {
+        const current = homePage.current;
+        if (e.deltaY === 100 && current.scrollHeight == current.clientHeight) {
+            window.location.replace('/feature-page/feature-page/');
+        }
+    }
 
     return (
 
-        <div id="home-page" onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
+        <div id="home-page" ref={homePage} onWheel={wheelRedirect} onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
             <Header color={pageInfo[index][1]} />
-            
+
 
             <div id="home-frame">
                 {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}

@@ -95,7 +95,7 @@ export default function Home() {
 
         // Check if scrollTop still exists, otherwise scrolling is not available
         // Should then be handled by wheelRedirect instead.
-        if (bottom && e.target.scrollTop != 0) { 
+        if (bottom && e.target.scrollTop !== 0) { 
             window.location.replace('/feature-page/feature-page/');
         }
     }
@@ -103,7 +103,7 @@ export default function Home() {
     // Redirect feature in case the page is max height.
     const wheelRedirect = (e) => {
         const current = homePage.current;
-        if (e.deltaY === 100 && current.scrollHeight == current.clientHeight) {
+        if (e.deltaY === 100 && current.scrollHeight === current.clientHeight) {
             window.location.replace('/feature-page/feature-page/');
         }
     }

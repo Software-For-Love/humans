@@ -110,7 +110,7 @@ export default function Home() {
 
     return (
 
-        <div id="home-page" ref={homePage} onWheel={wheelRedirect} onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
+        <div id="home-page" ref={homePage} onWheel={wheelRedirect} onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})` }}>
             <Header color={pageInfo[index][1]} />
 
 

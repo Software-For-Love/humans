@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Header from "../components/Header/Header";
 import HomeFrame from "../components/HomeFrame/HomeFrame";
@@ -60,8 +60,6 @@ export default function Home() {
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(true);
 
-    const homePage = useRef(null);
-
     // CHANGE SECONDS
     useEffect(() => {
         setInterval(() =>
@@ -75,6 +73,7 @@ export default function Home() {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
                 if (seconds === 3) {
+                    window.scrollTo(0, 0)
                     setIndex(prevIndex => (prevIndex === 3) ? 0 : prevIndex + 1)
                     setSeconds(0)
                 }
@@ -85,73 +84,71 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [isActive, seconds]);
 
+    // Reacts to when the bottom of the page is reached and then redirects to the specified url in scrollRedirect
+    useEffect(() => {
+        document.addEventListener('scroll', scrollRedirect, true)
+
+        return () => document.removeEventListener('scroll', scrollRedirect, true)
+    }, [])
+
     function toggle() {
         setIsActive(!isActive);
     }
 
     // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
     const scrollRedirect = (e) => {
-        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-
-        // Check if scrollTop still exists, otherwise scrolling is not available
-        // Should then be handled by wheelRedirect instead.
-        if (bottom && e.target.scrollTop !== 0) { 
-            window.location.replace('/feature-page/feature-page/');
-        }
-    }
-
-    // Redirect feature in case the page is max height.
-    const wheelRedirect = (e) => {
-        const current = homePage.current;
-        if (e.deltaY === 100 && current.scrollHeight === current.clientHeight) {
+        const scrollingElement = e.target.scrollingElement;
+        const bottom = scrollingElement.scrollHeight - scrollingElement.scrollTop === scrollingElement.clientHeight;
+        if (bottom) {
             window.location.replace('/feature-page/feature-page/');
         }
     }
 
     return (
+        <div>
+            <div id="home-background" style={{ backgroundImage: `url(${pageInfo[index][2]})` }}></div>
+            <div id="home-page" onScroll={scrollRedirect} >
+                <Header color={pageInfo[index][1]} />
 
-        <div id="home-page" ref={homePage} onWheel={wheelRedirect} onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})` }}>
-            <Header color={pageInfo[index][1]} />
+                <div id="home-frame">
+                    {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
+                    <div id="main-content">
 
+                        {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
+                        <div id="titles-and-buttons">
+                            {/* SUBPAGE HEADER */}
+                            <p id="subpage-header">{pageInfo[index][0]}</p>
 
-            <div id="home-frame">
-                {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
-                <div id="main-content">
-
-                    {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
-                    <div id="titles-and-buttons">
-                        {/* SUBPAGE HEADER */}
-                        <p id="subpage-header">{pageInfo[index][0]}</p>
-
-                        {/* PLAY/PAUSE BUTTON */}
-                        <div id="play-and-pause">
-                            <button type="button" id="play-and-pause-btn" style={{ fontSize: "36px" }} onClick={toggle}>
-                                {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
-                            </button>
+                            {/* PLAY/PAUSE BUTTON */}
+                            <div id="play-and-pause">
+                                <button type="button" id="play-and-pause-btn" style={{ fontSize: "36px" }} onClick={toggle}>
+                                    {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <br style={{ lineHeight: "1.5" }} />
+                        <br style={{ lineHeight: "1.5" }} />
 
-                    {/* SUBPAGE DIALOGUE AND IMAGE */}
-                    <HomeFrame color={pageInfo[index][1]} index={index} />
-                </div>
-
-                {/* FOOTER (TIME, LEARN MORE, SLIDER) */}
-                <div id="main-page-footer">
-                    {/* TIME */}
-                    <div id="footer-time">
-                        <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
+                        {/* SUBPAGE DIALOGUE AND IMAGE */}
+                        <HomeFrame color={pageInfo[index][1]} index={index} />
                     </div>
 
-                    {/* LEARN MORE */}
-                    <div id="learn-more" >
-                        <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
-                        <img src={arrows} id="arrows" alt="Down Directional Arrows" />
-                    </div>
+                    {/* FOOTER (TIME, LEARN MORE, SLIDER) */}
+                    <div id="main-page-footer">
+                        {/* TIME */}
+                        <div id="footer-time">
+                            <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
+                        </div>
 
-                    {/* SLIDER */}
-                    <div id="slider" >
-                        <Pagination color={pageInfo[index][1]} index={index} />
+                        {/* LEARN MORE */}
+                        <div id="learn-more" >
+                            <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                            <img src={arrows} id="arrows" alt="Down Directional Arrows" />
+                        </div>
+
+                        {/* SLIDER */}
+                        <div id="slider" >
+                            <Pagination color={pageInfo[index][1]} index={index} />
+                        </div>
                     </div>
                 </div>
             </div>

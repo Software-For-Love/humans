@@ -2,6 +2,100 @@
     --color: #FF98B1;
 }
 
+/* ----------- RESPONSIVE WEB DESIGN ----------- */  
+
+/* Small screens */
+@media only screen {
+    #mobile-design-home {display: inline-block;}
+    #non-mobile-design-home {display: none;} 
+    
+    #subpage-header { font-size: 24px; }
+    #titles-and-buttons { margin-left: 0.7rem;}
+    #play-and-pause-btn { font-size: 24px; }
+    #main-content { width: fit-content; }
+
+    #main-footer-wrapper {
+        margin-top: 3.2rem;
+    }
+
+    #learn-more {
+        display: inline-block;
+    }
+    
+    #learn-more-btn { 
+        font-size: 12px;
+        line-height: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 0;
+    }
+} /* Define mobile styles */
+
+/* Medium screens */
+@media only screen and (min-width: 40.063em) { 
+    #subpage-header { font-size: 28px; }
+    #play-and-pause-btn { font-size: 28px; }
+    #learn-more-btn { 
+        font-size: 18px;
+        line-height: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+} /* min-width 641px */
+
+/* Large screens */
+@media only screen and (min-width: 65.063em) {
+    #mobile-design-home { display: none; }
+    #non-mobile-design-home {
+        display: inline-flex;
+        width: 90vw;
+    }  
+    
+    #subpage-header { font-size: 34px; }
+    #titles-and-buttons { margin-left: 0rem;}
+    #play-and-pause-btn { font-size: 34px; }
+    #main-content-wrapper { margin-top: 2rem; }
+    #main-content {
+        display: inline-block;
+        width: 87vw;
+    }
+
+    #footer-time { font-size: 24px; margin-left: 0;}
+    #learn-more {
+        margin: auto;
+        margin-right: 0;
+    }
+    #learn-more-btn { 
+        font-size: 22px;
+        line-height: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    #slider { margin-right: 0; }
+} /* min-width 1025px */
+
+/* XLarge screens */
+@media only screen and (min-width: 90.063em) { 
+    #non-mobile-design-home { width: 80vw; } 
+    #subpage-header { font-size: 40px; }
+    #play-and-pause-btn { font-size: 40px; }
+    #main-content { width: fit-content; }
+    #footer-time { font-size: 30px; }
+} /* min-width 1441px, xlarge screens */
+
+/* XXLarge screens */
+@media only screen and (min-width: 120.063em) { 
+    #non-mobile-design-home { width: 70vw; } 
+    #subpage-header { font-size: 48px; }
+    #play-and-pause-btn { font-size: 48px; }
+    #footer-time { font-size: 34px; }
+} /* min-width 1921px, xxlarge screens */
+
+
+
+
+/* ----------- COMMON AMOUNG ALL SIZES ----------- */
+
 #home-page {
     background-size: cover;
     position: absolute;
@@ -16,20 +110,24 @@
     overflow: scroll;
 }
 
+#main-content-wrapper {
+    /* border: 2px solid yellow; */
+    width: 100vw;
+}
+
 #main-content {
-    /* border: solid 3px black; */
-    width: fit-content;
+    /* border: solid 3px red; */
     height: fit-content;
-    display: inline-block;
-    margin-top: 3rem;
+    margin: auto;
+    display: block;
 }
 
 #titles-and-buttons {
     /* border: solid 3px white; */
-    display:grid;
+    display: grid;
     width: fit-content;
     height: fit-content;
-    position: absolute;
+    /* position: absolute; */
 }
 
 #subpage-header {
@@ -38,7 +136,7 @@
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
+    /* font-size: 40px; */
     float: left;
     margin: 0;
     height: min-content;
@@ -48,14 +146,12 @@
     /* border: solid 3px white; */
     width: min-content;
     height: min-content;
-    margin-bottom: 0;
     position: relative;
     display: inline-flex;
 }
 
 #play-and-pause-btn {
     color: white;
-    font-size: xx-large;
     cursor: pointer;
 }
 
@@ -63,80 +159,71 @@
     /* border: solid 2px black; */
     margin-top: 2vh;
     position: absolute;
-    display: block;
-    left: 7%;
+    display: inline-block;
     height: fit-content;
     width: min-content;
-    align-content: flex-start;
-    top: 11.6vh;
+}
+
+#main-footer-wrapper {
+    /* border: 2px solid black; */
+    width: 100vw;
 }
 
 #main-page-footer {
-    margin-top: 13vh;
+    margin: auto;
     /* border: solid 2px black; */
-    display: inline-flex;
+    display: flex;
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
     color: white;
-    width: 85vw;
+    width: fit-content;
     height: min-content;
 }
 
 #footer-time {
-    position: relative;
-    float: left;
     /* border: solid 2px black; */
+    float: left;
     height: fit-content;
     width: fit-content;
+    margin-right: 0;
 }
 
 #learn-more {
-    float: right;
-    position: relative;
-    margin-left: 27rem;
-    /* margin-top: 0; */
     /* border: solid 2px black; */
     width: fit-content;
     height: fit-content;
-    display: block;
-    align-self: center;
+    /* margin: auto; */
 }
 
 #learn-more-btn {
     border-radius: 40px;
     background-color: white;
     color: black;
-    line-height: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
     filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
     opacity: 80%;
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
     cursor: pointer;
 }
 
 #arrows {
     position: relative;
     display: block;
-    margin-top: 2vh;
     height: 4.5vh;
-    margin-left: 45%;
-    margin-top: 1.5vh;
+    margin: auto;
+    margin-top: 1rem;
 }
 
 #slider {
-    float: right;
-    position: relative;
-    margin-left: auto;
+    margin: auto;
     margin-right: 0;
     /* border: solid 2px black; */
     width: fit-content;
     height: fit-content;
+    float: right;
 }
 
 /***********  SLIDER  *************/
@@ -161,12 +248,10 @@
     height: .35rem;
     top: 1.25rem;
     margin-top: 1.1rem;
-    transform: translate3d(0,0,-1px);
+    transform: translate3d(0, 0, -1px);
 }
 
-.pindicator .bullet::before {
-    width: 100%;
-}
+.pindicator .bullet::before { width: 100%; }
 
 .pindicator .bullet:first-child::before,
 .pindicator .bullet:first-child::after {
@@ -174,9 +259,7 @@
     width: 50%;
 }
 .pindicator .bullet:last-child::before,
-.pindicator .bullet:last-child::after {
-    width: 50%;
-}
+.pindicator .bullet:last-child::after { width: 50%; }
 
 .pindicator .icon {
     border: 4px var(--color) solid;

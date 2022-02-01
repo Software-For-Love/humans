@@ -5,11 +5,112 @@
     --imgRotate: 3deg; 
 }
 
+/* ----------- RESPONSIVE WEB DESIGN ----------- */  
+
+/* Small screens */
+@media only screen {     
+    #mobile-design { display: block; }
+    #non-mobile-design { display: none; }
+    
+    #container {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+
+    #subpage-description {
+        margin: auto;
+        margin-top: 1.7rem;
+        font-size: 25px;
+        text-align: center;
+        height: 100px;
+    }
+
+    #image {
+        display: flex;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    #picture-frame {
+        height: 220px;
+        width: 280px;
+        margin: auto;
+    }
+    
+    #picture {
+        height: 170px;
+        width: 260px;
+    }
+} /* Define mobile styles */
+
+/* Medium screens */
+@media only screen and (min-width: 40.063em) { 
+    #subpage-description { font-size: 35px; }
+    #image { margin-bottom: 2rem; }
+    #subpage-description { height: fit-content; }
+    
+    #picture-frame {
+        height: 350px;
+        width: 400px;
+    }
+    
+    #picture {
+        height: 310px;
+        width: 350px;
+    }
+} /* min-width 641px, medium screens */
+
+/* Large screens */
+@media only screen and (min-width: 64.063em) {
+    #mobile-design { display: none; }
+    #non-mobile-design { display: block; } 
+    
+    #container { display: inline-flex; }
+
+    #subpage-description {
+        font-size: 375%;
+        float: left;
+        /* border: 2px solid black; */
+        width: 45%;
+        text-align: left;
+        margin: auto;
+        display: flex;
+    }
+
+    #image {
+        float: right;
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    #picture-frame {
+        height: 440px;
+        width: 490px;
+    }
+    
+    #picture {
+        height: 390px;
+        width: 440px;
+    }
+} /* min-width 1025px, large screens */
+
+/* XLarge screens */
+@media only screen and (min-width: 90.063em) { 
+    #picture-frame {
+        height: 470px;
+        width: 520px;
+    }
+} /* min-width 1441px, xlarge screens */
+
+
+
+
+/* ----------- COMMON AMOUNG ALL SIZES ----------- */
+
 #container {
     /* border: solid 3px black; */
     width: fit-content;
     height: fit-content;
-    display: inline-flex;
 }
 
 #subpage-description {
@@ -17,18 +118,7 @@
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 70px;
     color: #FF98B1;
-    float: left;
-    /* margin-bottom: 0; */
-    margin-top: 8rem;
-    bottom: 0;
-}
-
-#image {
-    float: right;
-    margin-left: 15vw;
-    position: relative;
 }
 
 #picture-frame {
@@ -38,16 +128,12 @@
     transform: rotate(var(--frameRotate));
     animation: rotation 0.5s linear;
     filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
-    height: 50vh;
-    width: 30vw;
 }
 
 #picture {
     -webkit-transform: rotate(var(--imgRotate));
     -ms-transform: rotate(var(--imgRotate));
     transform: rotate(var(--imgRotate));
-    height: 45vh;
-    width: 25vw;
 }
   
 @keyframes rotation {

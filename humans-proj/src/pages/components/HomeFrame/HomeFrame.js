@@ -29,26 +29,38 @@ export default function HomeFrame(props) {
 
     return (
         <div id="container">
-            <div id="subpage-info">
-                {/* <p id="subpage-header">{subpageInfo[thisIndex][0]}</p>
-
-                PAUSE AND PLAY BUTTONS
-                <div id="play-and-pause">
-                    <button type="button" id="play-and-pause-btn" style={{ fontWeight: "revert", fontSize: "36px" }}>▷</button>
-                    <button type="button" id="play-and-pause-btn" style={{ transform: "rotate(90deg)", fontWeight: "bolder", fontSize: "36px" }}>=</button>
-                </div> */}
-
-                <p id="subpage-description" style={{ color: props.color }}>{subpageInfo[thisIndex][1]}</p>
-            </div>
-            <div id="image">
-                <div id="picture-frame" style={{ backgroundColor: props.color }}>
-                    <img
-                        id="picture"
-                        src={subpageInfo[thisIndex][2]}
-                        alt="welcome-photo"
-                    />
+            {/** NON-MOBILE DESIGN */}
+            <div id="non-mobile-design">
+                <div id="subpage-info">
+                    <p id="subpage-description" style={{ color: props.color }}>{subpageInfo[thisIndex][1]}</p>
+                </div>
+                <div id="image">
+                    <div id="picture-frame" style={{ backgroundColor: props.color }}>
+                        <img
+                            id="picture"
+                            src={subpageInfo[thisIndex][2]}
+                            alt="welcome-photo"
+                        />
+                    </div>
                 </div>
             </div>
+
+            {/** MOBILE DESIGN */}
+            <div id="mobile-design">
+                <div id="image">
+                    <div id="picture-frame" style={{ backgroundColor: props.color }}>
+                        <img
+                            id="picture"
+                            src={subpageInfo[thisIndex][2]}
+                            alt="welcome-photo"
+                        />
+                    </div>
+                </div>
+                <div id="subpage-info">
+                    <p id="subpage-description" style={{ color: props.color }}>{subpageInfo[thisIndex][1]}</p>
+                </div>
+            </div>
+        
         </div>
     )
 }

@@ -10,10 +10,10 @@ import oldEntriesBackground from '../../../static/images/home4-background.png'
 import "./Home.css";
 
 const pageInfo = [
-    ["FEATURED", '#FF98B1', featuredBackground],
-    ["ABOUT", '#FFA16C', aboutBackground],
-    ["TEAM", '#CBEFFF', teamBackground],
-    ["OLD ENTRIES", '#F6B6B6', oldEntriesBackground],
+    ["FEATURED", '#FF98B1', featuredBackground, '/feature-page/currently-featured/'],
+    ["ABOUT", '#FFA16C', aboutBackground, '/about-page/AboutPage/'],
+    ["TEAM", '#CBEFFF', teamBackground, '/nominate-page/nominate/'],
+    ["OLD ENTRIES", '#F6B6B6', oldEntriesBackground, '/feature-page/feature-page/']
 ]
 
 /**
@@ -91,7 +91,7 @@ export default function Home() {
     const scrollRedirect = (e) => {
         const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
         if (bottom) { 
-            window.location.replace('/feature-page/feature-page/');
+            window.location.replace(pageInfo[index][3]);
         }
      }
 

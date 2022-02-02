@@ -10,7 +10,7 @@
     left: 0;
     width: 100%;
     height: auto;
-    min-height: 105%;
+    min-height: 102%;
     transition: transform .4s ease-in-out;
 }
 

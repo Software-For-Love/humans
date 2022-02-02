@@ -73,9 +73,14 @@ export default function Home() {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
                 if (seconds === 3) {
-                    window.scrollTo(0, 0)
                     setIndex(prevIndex => (prevIndex === 3) ? 0 : prevIndex + 1)
                     setSeconds(0)
+                    
+                    // Prevents redirects when changing screens
+                    const scrollBarNext = document.scrollingElement
+                    if (scrollBarNext.clientHeight + scrollBarNext.scrollTop >= scrollBarNext.scrollHeight) {
+                        window.scrollTo(0, scrollBarNext.scrollHeight - scrollBarNext.clientHeight - 1);
+                    }
                 }
             }, 1000);
         } else if (!isActive && seconds !== 0) {

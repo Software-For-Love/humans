@@ -90,55 +90,71 @@ export default function Home() {
     // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
     const scrollRedirect = (e) => {
         const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+
         if (bottom) { 
             window.location.replace(pageInfo[index][3]);
+
         }
-     }
+    }
 
     return (
 
         <div id="home-page" onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
             <Header color={pageInfo[index][1]} />
-            
+
 
             <div id="home-frame">
-                {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
-                <div id="main-content">
+                <div id="main-content-wrapper">
+                    {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
+                    <div id="main-content">
 
-                    {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
-                    <div id="titles-and-buttons">
-                        {/* SUBPAGE HEADER */}
-                        <p id="subpage-header">{pageInfo[index][0]}</p>
+                        {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
+                        <div id="titles-and-buttons">
+                            {/* SUBPAGE HEADER */}
+                            <p id="subpage-header">{pageInfo[index][0]}</p>
 
-                        {/* PLAY/PAUSE BUTTON */}
-                        <div id="play-and-pause">
-                            <button type="button" id="play-and-pause-btn" style={{ fontSize: "36px" }} onClick={toggle}>
-                                {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
-                            </button>
+                            {/* PLAY/PAUSE BUTTON */}
+                            <div id="play-and-pause">
+                                <button type="button" id="play-and-pause-btn" onClick={toggle}>
+                                    {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <br style={{ lineHeight: "1.5" }} />
+                        <br style={{ lineHeight: "1.5" }} />
 
-                    {/* SUBPAGE DIALOGUE AND IMAGE */}
-                    <HomeFrame color={pageInfo[index][1]} index={index} />
+                        {/* SUBPAGE DIALOGUE AND IMAGE */}
+                        <HomeFrame color={pageInfo[index][1]} index={index} />
+                    </div>
                 </div>
 
                 {/* FOOTER (TIME, LEARN MORE, SLIDER) */}
-                <div id="main-page-footer">
-                    {/* TIME */}
-                    <div id="footer-time">
-                        <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
-                    </div>
+                <div id="main-footer-wrapper">
+                    <div id="main-page-footer">
+                        <footer id="non-mobile-design-home">
+                            {/* TIME */}
+                            <div id="footer-time">
+                                <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
+                            </div>
 
-                    {/* LEARN MORE */}
-                    <div id="learn-more" >
-                        <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
-                        <img src={arrows} id="arrows" alt="Down Directional Arrows" />
-                    </div>
+                            {/* LEARN MORE */}
+                            <div id="learn-more" >
+                                <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                                <img src={arrows} id="arrows" alt="Down Directional Arrows" />
+                            </div>
 
-                    {/* SLIDER */}
-                    <div id="slider" >
-                        <Pagination color={pageInfo[index][1]} index={index} />
+                            {/* SLIDER */}
+                            <div id="slider" >
+                                <Pagination color={pageInfo[index][1]} index={index} />
+                            </div>
+                        </footer>
+
+                        {/* MOBILE DESIGN */}
+                        <div id="mobile-design-home">
+                            {/* LEARN MORE */}
+                            <div id="learn-more" >
+                                <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

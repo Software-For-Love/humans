@@ -1,129 +1,224 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display');
 
+/* ----------- RESPONSIVE WEB DESIGN ----------- */ 
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) { 
+    #header {
+        width: 100%;
+        display: flex;
+    }
+    
+    #hand-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    #nav-menu {
+        display: none;
+    }
+
+    #logo-and-title {
+        font-size: small;
+        margin-left: 1rem;
+    }
+
+    .hamheader {
+        /* border: solid black 2px; */
+        display: inline-flex;
+        z-index: 10;
+        float: right;
+        margin: auto;
+        margin-top: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    #hand-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    #logo-and-title { font-size: larger; }
+    #nav-menu { padding: 2.1rem; }
+    #link-wrapper { padding: 0.5rem; }
+
+    #header-link {
+        font-size: medium;
+        padding: auto;
+        padding-top: 15px;
+    }
+
+    #dropdown-link {
+        font-size: small;
+        padding: 7px;
+    }
+
+    hr { width: 90px; }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 1088px) {
+
+    #header {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+    }
+    
+    #hand-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    #logo-and-title {
+        margin-right: 1.8rem;
+        font-size: larger;
+    }
+    
+    #nav-menu {
+        display: inline;
+        padding: 2.5rem;
+        margin-left: 1.8rem;
+    }
+
+    #link-wrapper {
+        padding: 1.3rem;
+        display: inline;
+    }
+
+    #header-link {
+        font-size: larger;
+        padding: auto;
+        padding-top: 15px;
+    }
+
+    #dropdown-link {
+        font-size: medium;
+        padding: 10px;
+    }
+
+    hr { width: 110px; }
+
+    .hamheader { display: none; }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    #hand-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #logo-and-title {
+        margin-right: 3rem;
+        font-size: 20px;
+    }
+    
+    #nav-menu {
+        padding: 2.5rem;
+        margin-left: 3rem;
+    }
+
+    #link-wrapper { padding: 2rem; }
+
+    #header-link {
+        font-size: large;
+        padding: auto;
+        padding-top: 15px;
+    }
+
+    #dropdown-link { font-size: medium; }
+
+    hr { width: 110px; }
+}
+
+
+
+/* ----------- COMMON AMOUNG ALL SIZES ----------- */
+#header-wrapper {
+    /* border: solid black 3px; */
+    width: 100vw;
+}
+
 #header {
-    width:100vw;
-    height:10vh;
-    border: solid hidden;
+    /* border: solid black 3px; */
+    height: fit-content;
     font-family: Red Hat Display;
     font-style: normal;
-    display: inline;
-    overflow: hidden;
     color: white;
+    text-decoration: none;
 }
 
 #hand-image {
+    /* border: solid black 3px; */
     object-fit: contain;
     position: relative;
-    float: left;
-    height: 9vh;
-    width: 9vh;
-    margin-top: 0.5vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
-h1 {
-    float: left;
-    font-weight: bold;
-    margin-left: 0.5vw;
-    font-size: 40px;
-    line-height: 40px;
-}
-
-/* #links-bar {
-    margin-top: 3.5vh;
-    vertical-align: middle;
-} */
-#links-bar {
-    margin-top: 1.5vh;
-    display: inline-flex;
-    position: relative;
+#title {
     /* border: solid black 3px; */
+    text-decoration: none;
+    color: white;
+    font-family: Red Hat Display;
 }
+
+#logo-and-title {
+    /* border: solid black 3px; */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    z-index: 10;
+}
+
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+}
+
+#dropdown-content Link {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+#dropdown:hover #dropdown-content {display: block;}
+#dropdown:hover hr {display: block;}
+#dropdown:hover #header-link {background-color: black;}
 
 #header-link {
     font-family: Red Hat Display;
     font-weight: lighter;
-    display: inline;
-    font-size: 20px;
-    line-height: 24px;
-    list-style-type: none;
-    vertical-align: middle;
     color: white;
     text-decoration: none;
-    margin-left: 2vw;
-    padding: 1.2vw;
-}
-
-#feature-dropdown-menu {
-    font-family: Red Hat Display;
-    font-weight: lighter;
-    display: inline;
-    padding: 1.2vw;
-    padding-right: 2.4vw;
-    font-size: 20px;
-    line-height: 24px;
-    list-style-type: none;
-    color: white;
-    text-decoration: none;
-    margin-left: 3vw;
-    position: absolute;
-    max-width: min-content;
-    /* border: solid black 3px; */
-    z-index: 4;
-    left: 27%;
-}
-
-.arrow {
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 4px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    margin-left: 0.5vw;
-    margin-bottom: 0.4vh;
-    vertical-align: middle;
-    position: absolute;
-}
-
-#dropdown-links {
-    position: relative;
-    text-decoration: none;
-    font-family: Red Hat Display;
-    color: white;
-    font-weight: lighter;
-    z-index: 1;
-    text-align: center;
-    padding-top: 1.5vh;
-    min-width: min-content;
 }
 
 #dropdown-link {
-    display: none;
-    text-decoration: none;
     font-family: Red Hat Display;
     font-weight: lighter;
-    color: white;
-    font-size: 16px;
-    line-height: 20px;
-    padding-bottom: 1vh;
-    z-index: -1;
-}
-
-#feature-dropdown-menu:hover{
-    color: white;
-    background-color: black;
-    z-index: 1;
-}
-
-#feature-dropdown-menu:hover #dropdown-link {
     display: block;
-    background-color: black;
+    justify-items: center;
     color: white;
-    z-index: 1;
+    text-decoration: none;
 }
 
-#space{
-    width: 100px; 
-    height: 25px; 
-    margin-right:0px;
+hr {
+    display: none;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
 }

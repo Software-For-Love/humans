@@ -77,7 +77,7 @@ export default function Home() {
                     setSeconds(0)
                     
                     // Prevents redirects when changing screens
-                    const scrollBarNext = document.scrollingElement
+                    const scrollBarNext = document.documentElement
                     if (scrollBarNext.clientHeight + scrollBarNext.scrollTop >= scrollBarNext.scrollHeight) {
                         window.scrollTo(0, scrollBarNext.scrollHeight - scrollBarNext.clientHeight - 1);
                     }

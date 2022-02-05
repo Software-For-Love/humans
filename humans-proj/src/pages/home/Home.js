@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import moment from "moment";
 import Header from "../components/Header/Header";
 import HomeFrame from "../components/HomeFrame/HomeFrame";
@@ -59,6 +59,7 @@ export default function Home() {
     const [time, setTimeState] = useState(moment())
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(true);
+    const [scrollHeight, setScrollHeight] = useState(0);
 
     // CHANGE SECONDS
     useEffect(() => {
@@ -75,6 +76,13 @@ export default function Home() {
                 if (seconds === 3) {
                     setIndex(prevIndex => (prevIndex === 3) ? 0 : prevIndex + 1)
                     setSeconds(0)
+
+                    // Prevents redirects when changing screens
+                    const documentElement = document.documentElement;
+                    setScrollHeight(documentElement.scrollHeight);
+                    if (documentElement.clientHeight + documentElement.scrollTop >= documentElement.scrollHeight) {
+                        window.scrollTo(0, documentElement.scrollHeight - documentElement.clientHeight - 5);
+                    }
                 }
             }, 1000);
         } else if (!isActive && seconds !== 0) {
@@ -88,76 +96,87 @@ export default function Home() {
     }
 
     // REDIRECT TO FEATURE PAGE IF SCROLLING DOWN PAST BOTTOM OF PAGE
-    const scrollRedirect = (e) => {
-        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    const scrollRedirect = useCallback(e => {
+        const documentElement = e.target.documentElement;
+        const bottom = Math.abs(documentElement.scrollHeight - documentElement.scrollTop - documentElement.clientHeight);
+        const nextScrollHeight = documentElement.scrollHeight;
 
-        if (bottom) { 
-            window.location.replace(pageInfo[index][3]);
-
+        if (bottom <= 1) {
+            if (nextScrollHeight === scrollHeight)
+                window.location.replace(pageInfo[index][3]);
+            else
+                window.scrollTo(0, nextScrollHeight - documentElement.clientHeight - 5)
         }
-    }
+        setScrollHeight(nextScrollHeight);
+    }, [scrollHeight, index])
+
+    // Reacts to when the bottom of the page is reached and then redirects to the specified url in scrollRedirect
+    useEffect(() => {
+        document.addEventListener('scroll', scrollRedirect, true);
+
+        return () => document.removeEventListener('scroll', scrollRedirect, true);
+    }, [scrollRedirect])
 
     return (
+            <div id="home-page">
+                <div id="home-background" style={{ backgroundImage: `url(${pageInfo[index][2]})` }}></div>
+                <Header color={pageInfo[index][1]} />
 
-        <div id="home-page" onScroll={scrollRedirect} style={{ backgroundImage: `url(${pageInfo[index][2]})`, overflowY: 'scroll' }}>
-            <Header color={pageInfo[index][1]} />
+                <div id="home-frame">
+                    <div id="main-content-wrapper">
+                        {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
+                        <div id="main-content">
 
+                            {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
+                            <div id="titles-and-buttons">
+                                {/* SUBPAGE HEADER */}
+                                <p id="subpage-header">{pageInfo[index][0]}</p>
 
-            <div id="home-frame">
-                <div id="main-content-wrapper">
-                    {/* SUBPAGE HEADER, PLAY/PAUSE BUTTON, HOMEFRAME */}
-                    <div id="main-content">
-
-                        {/* SUBPAGE HEADER AND PLAY/PAUSE BUTTON */}
-                        <div id="titles-and-buttons">
-                            {/* SUBPAGE HEADER */}
-                            <p id="subpage-header">{pageInfo[index][0]}</p>
-
-                            {/* PLAY/PAUSE BUTTON */}
-                            <div id="play-and-pause">
-                                <button type="button" id="play-and-pause-btn" onClick={toggle}>
-                                    {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
-                                </button>
+                                {/* PLAY/PAUSE BUTTON */}
+                                <div id="play-and-pause">
+                                    <button type="button" id="play-and-pause-btn" onClick={toggle}>
+                                        {!isActive ? "\u25B6" : ("\u2758" + "\u2758")}
+                                    </button>
+                                </div>
                             </div>
+                            <br style={{ lineHeight: "1.5" }} />
+
+                            {/* SUBPAGE DIALOGUE AND IMAGE */}
+                            <HomeFrame color={pageInfo[index][1]} index={index} />
                         </div>
-                        <br style={{ lineHeight: "1.5" }} />
-
-                        {/* SUBPAGE DIALOGUE AND IMAGE */}
-                        <HomeFrame color={pageInfo[index][1]} index={index} />
                     </div>
-                </div>
 
-                {/* FOOTER (TIME, LEARN MORE, SLIDER) */}
-                <div id="main-footer-wrapper">
-                    <div id="main-page-footer">
-                        <footer id="non-mobile-design-home">
-                            {/* TIME */}
-                            <div id="footer-time">
-                                <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
-                            </div>
+                    {/* FOOTER (TIME, LEARN MORE, SLIDER) */}
+                    <div id="main-footer-wrapper">
+                        <div id="main-page-footer">
+                            <footer id="non-mobile-design-home">
+                                {/* TIME */}
+                                <div id="footer-time">
+                                    <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
+                                </div>
 
-                            {/* LEARN MORE */}
-                            <div id="learn-more" >
-                                <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
-                                <img src={arrows} id="arrows" alt="Down Directional Arrows" />
-                            </div>
+                                {/* LEARN MORE */}
+                                <div id="learn-more" >
+                                    <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                                    <img src={arrows} id="arrows" alt="Down Directional Arrows" />
+                                </div>
 
-                            {/* SLIDER */}
-                            <div id="slider" >
-                                <Pagination color={pageInfo[index][1]} index={index} />
-                            </div>
-                        </footer>
+                                {/* SLIDER */}
+                                <div id="slider" >
+                                    <Pagination color={pageInfo[index][1]} index={index} />
+                                </div>
+                            </footer>
 
-                        {/* MOBILE DESIGN */}
-                        <div id="mobile-design-home">
-                            {/* LEARN MORE */}
-                            <div id="learn-more" >
-                                <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                            {/* MOBILE DESIGN */}
+                            <div id="mobile-design-home">
+                                {/* LEARN MORE */}
+                                <div id="learn-more" >
+                                    <a href="/feature-page/feature-page/"><button id="learn-more-btn">Learn More</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }

@@ -37,7 +37,7 @@
         margin: auto;
     }
     
-    #picture {
+    #home-picture {
         height: 170px;
         width: 260px;
     }
@@ -54,7 +54,7 @@
         width: 400px;
     }
     
-    #picture {
+    #home-picture {
         height: 310px;
         width: 350px;
     }
@@ -88,7 +88,7 @@
         width: 490px;
     }
     
-    #picture {
+    #home-picture {
         height: 390px;
         width: 440px;
     }
@@ -130,10 +130,12 @@
     filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
 }
 
-#picture {
+#home-picture {
     -webkit-transform: rotate(var(--imgRotate));
     -ms-transform: rotate(var(--imgRotate));
     transform: rotate(var(--imgRotate));
+    display: inline-block;
+    margin: 3.13vh 2.82vw 1.7vh 2.82vw;
 }
   
 @keyframes rotation {

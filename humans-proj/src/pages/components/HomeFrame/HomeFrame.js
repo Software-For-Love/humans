@@ -37,7 +37,7 @@ export default function HomeFrame(props) {
                 <div id="image">
                     <div id="picture-frame" style={{ backgroundColor: props.color }}>
                         <img
-                            id="picture"
+                            id="home-picture"
                             src={subpageInfo[thisIndex][2]}
                             alt="welcome-photo"
                         />
@@ -50,7 +50,7 @@ export default function HomeFrame(props) {
                 <div id="image">
                     <div id="picture-frame" style={{ backgroundColor: props.color }}>
                         <img
-                            id="picture"
+                            id="home-picture"
                             src={subpageInfo[thisIndex][2]}
                             alt="welcome-photo"
                         />

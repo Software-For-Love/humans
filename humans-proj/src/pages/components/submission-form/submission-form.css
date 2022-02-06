@@ -1,10 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
 
+/* ----------- RESPONSIVE WEB DESIGN ----------- */  
+
+/* Small screens */
+@media only screen {
+    #intro {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 1vh;
+    }
+
+    label {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    textarea, #email {
+        width: 70vw;
+        height: 5vh;
+        font-size: 14px;
+        padding: 0.5vh 1vw 0vh 2vw;
+        border-radius: 33px;
+    }
+
+    #description-text { margin-top: 0vh; }
+
+    #description-text-input {
+        font-size: 16.5px;
+        height: 12vh;
+        width: 80vw;
+    }
+
+    #consent {
+        margin-left: 2vw;
+        font-size: 14px;
+    }
+
+    #can-contact-checkbox { margin-top: 0.5vh; }
+
+    #spinner { display: none; }
+
+    #submit-button {
+        height: 5vh;
+        width: 20vw;
+        font-size: 14px;
+        margin-top: 2vh;
+    }
+} /* Define mobile styles */
+
+/* Medium screens */
+@media only screen and (min-width: 40.063em) {
+    #intro {
+        font-size: 22px;
+        margin-bottom: 2vh;
+    }
+
+    label { font-size: 18px; }
+    
+    textarea {
+        width: 37vw;
+        padding: 1vh 1vw 0vh 2vw;
+    }
+    
+    #description-text { margin-top: 6vh; }
+
+    #description-text-input { font-size: 14px; }
+
+    #consent {
+        margin-left: 1vw;
+        font-size: 18px;
+    }
+
+    #can-contact-checkbox { margin: auto; }
+
+    #spinner { margin-bottom: 2vh; }
+
+    #caption-border {
+        margin: 0 auto;
+        height: 32px;
+        width: 174px;
+        background-size: 100% 100%;
+    }
+
+    #picture {
+        height: 260px;
+        width: 350px;
+    }
+
+    #submit-button { width: 10vw; }
+} /* min-width 641px */
+
+/* Large screens */
+@media only screen and (min-width: 65.063em) {
+    #intro { font-size: 24px; }
+
+    label { font-size: 20px; }
+    
+    textarea, #email {
+        width: 45vw;
+        font-size: 18px;
+    }
+
+    #spinner { display: block; } 
+
+    #description-text-input { font-size: 18px; }
+
+    #consent {
+        margin-left: 1vw;
+        font-size: 20px;
+    }
+
+    #picture {
+        height: 275px;
+        width: 365px;
+    }
+} /* min-width 1025px */
+
+/* XXLarge screens */
+@media only screen and (min-width: 120.063em) { 
+    #intro { font-size: 32px; }
+
+    label { font-size: 28px; }
+    
+    textarea, #email { font-size: 26px; }
+
+    #description-text-input { font-size: 26px; }
+
+    #consent { font-size: 28px;     }
+
+    #can-contact-checkbox { margin: auto; }
+
+    #submit-button { font-size: 28px; }
+} /* min-width 1921px, xxlarge screens */
+
+/* ----------- COMMON AMOUNG ALL SIZES ----------- */
+
 #submission {
-    align-content: flex-start;
-    left: 8.5vw;
+    /* border: solid 2px black; */
     display: block;
-    position: absolute;
     text-align: left;
     width: 83vw;
     margin: 0 auto;
@@ -13,13 +146,11 @@
 }
 
 #intro {
+    /* border: solid 2px black; */
     margin-top: 0;
-    margin-bottom: 3vh;
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
-    line-height: 34.67px;
     color: #FFFFFF;
 }
 
@@ -27,53 +158,31 @@ label {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 22.5px;
-    line-height: 30px;
-    padding: 0px 20px;
     color: #FFFFFF;
 }
 
-textarea {
-    width: 26.38vw;
-    height: 4vh;
+textarea, #email {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 16.5px;
-    padding: 0.6vh 1vw 0vh 1vw;
     color: #FFFFFF;
     resize: none;
     background: rgba(255, 255, 255, 0.17);
     background-image: none;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 33px;
-    margin-bottom: 1vh;
 }
-#email {
-    width: 26.38vw;
-    height: 4vh;
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16.5px;
-    padding: 0.6vh 1vw 0vh 1vw;
-    color: #FFFFFF;
-    resize: none;
-    background: rgba(255, 255, 255, 0.17);
-    border: 2px solid #FFFFFF;
-    box-sizing: border-box;
-    border-radius: 33px;
-    margin-bottom: 1vh;
+
+#description-text {
+    /* border: solid 2px black; */
+    display: block;
 }
+
 #description-text-input {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 16.5px;
     color: white;
-    height: 8vh;
-    width:45.59vw;
     columns: 40;
     row-gap: 5;
 }
@@ -83,29 +192,33 @@ input[type="checkbox"] {
     vertical-align: middle;
 }
 
+#form-checkbox {
+    /* border: solid 2px white; */
+    margin-bottom: 0;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
 #consent {
-    display:inline-block;
+    /* border: solid 2px black; */
     vertical-align: middle;
 }
 
 #can-contact-checkbox {
-    margin: auto;
     background: rgba(255, 255, 255, 0.21);
-    border: 2px solid #FFFFFF;
+    border: solid 2px white;
     box-sizing: border-box;
+    vertical-align: middle;
 }
 
 #submit-button {
-    height: 4.82vh;
-    width: 10.74vw;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 33px;
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
     color: #000000;
 }
 
@@ -146,12 +259,7 @@ input[type="checkbox"] {
     }
 }
 
-#picture {
-    object-fit: cover;
-    height: 32.45vh;
-    width: 19.69vw;
-    margin: 3.13vh 2.82vw 1.7vh 2.82vw;
-}
+#picture { object-fit: cover; }
 
 #caption {
     text-align: center;
@@ -160,20 +268,11 @@ input[type="checkbox"] {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    height: 20px;
 }
 
 #caption-border {
     background-image: url("../../../../static/images/Rectangle-10.png");
     text-align: center;
-    margin: 0 auto;
-    height: 32px;
-    width: 174px;
-    margin-bottom: 1.7vh;
-    background-size: 100% 100%;
-    
     border: 1px #FFFFFF;
     box-sizing: border-box;
 }
@@ -184,5 +283,4 @@ input[type="checkbox"] {
     font-weight: bolder;
     font-size: 20px;
     color: black;
-    
 }

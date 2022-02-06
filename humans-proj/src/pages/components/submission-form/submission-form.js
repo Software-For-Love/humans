@@ -80,11 +80,9 @@ export default class SubmissionForm extends Component {
             
         }
 
-    handleSubmit = async(e) =>{
+    handleSubmit = async(e) => {
        e.preventDefault();
-       if (e.length>0){
-           return false;
-       }
+       if (e.length > 0){ return false; }
        const form = e.target;
         
         fetch("/", {
@@ -116,10 +114,10 @@ export default class SubmissionForm extends Component {
                         <img
                             id="picture"
                             src={this.props.image}
-                            alt="women-diversity"
+                            alt="submission-form-img"
                         />
                         <div id="caption-border">
-                            <figcaption id="caption">humans.</figcaption>
+                            <figcaption id="caption" for="picture">humans.</figcaption>
                         </div>
                     </div>
                     
@@ -130,6 +128,7 @@ export default class SubmissionForm extends Component {
                         input type="text"
                         value={this.state.firstName}
                         onChange={this.handleChange} required
+                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
                     />
                     <br style={{ lineHeight: "2" }} />
 
@@ -140,6 +139,7 @@ export default class SubmissionForm extends Component {
                         input type="text"
                         value={this.state.lastName}
                         onChange={this.handleChange} required
+                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
                     />
                  
                     <br style={{ lineHeight: "2" }} />
@@ -151,36 +151,35 @@ export default class SubmissionForm extends Component {
                         input type="email"
                         value={this.state.email}
                         onChange={this.handleChange} 
-                        required pattern= "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"/>
-                    
-                
-                    <br style={{ lineHeight: "2" }} />
-
-                    <label>Description</label>
-                    <br style={{ lineHeight: "2" }} />
-                    <textarea
-                        id="description-text-input"
-                        name="description"
-                        input type="text"
-                        value={this.state.descripton}
-                        onChange={this.handleChange} required
+                        required pattern= "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
                     />
+                    
+                    <div id="description-text">
+                        <label>Description</label>
+                        <br style={{ lineHeight: "2" }} />
+                        <textarea
+                            id="description-text-input"
+                            name="description"
+                            input type="text"
+                            value={this.state.descripton}
+                            onChange={this.handleChange} required
+                        />
+                    </div>
         
                     <br style={{ lineHeight: "2" }} />
 
-                    {/* <div className="form-group form-checkbox"> */}
+                    <div id="form-checkbox">
                         <input
                             type="checkbox"
                             id="can-contact-checkbox"
                             name="canContact"
-                            //checked={this.state.canContact}
                             value={this.state.canContact}
                             onChange={this.handleChange} required
                         />
                         <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted.</label>
-                    {/* </div> */}
-                  
-                    <br style={{ lineHeight: "2" }} />
+                    </div>
+
                     <button id="submit-button" input type="submit" onClick = {this.onClickSubmit}>SUBMIT</button>
                 </form>
             </div>

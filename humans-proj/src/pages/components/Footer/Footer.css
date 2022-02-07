@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
 
 #footer {
-    margin: auto 0;
-    position: absolute;
-    bottom: 0;
+    /* border: solid 2px red; */
 }
 
 #footer-text {

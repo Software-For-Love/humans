@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
 
+@media only screen and (min-width: 40.063em) { #nominate-page { display: grid; } }
+
 #nominate-page {
     background-image: url("../../../static/images/nominate-background.jpg");
     background-size: cover;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     min-height: 100%;
     min-width: 100%;
     width: 100%;
     height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

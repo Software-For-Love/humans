@@ -1,43 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
 
-#footer {
-    /* border: solid 2px red; */
-}
+/* ----------- RESPONSIVE WEB DESIGN ----------- */  
 
-#footer-text {
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 40px;
+/* Small screens */
+@media only screen {
+    #footer-intro-non-mobile { display: none; }
+    #footer-text {
+        font-size: 25px;
+        line-height: 30px;
+        margin: auto;
+    }
+
+    #share-icon { font-size: medium; }
+
+    #wrapper { padding-left: 5vw; }
+
+    #icon { font-size: 1px; }
+    
+    #web-social-div { margin-left: 0.5vw; }
+} /* Define mobile styles */
+
+/* Medium screens */
+@media only screen and (min-width: 40.063em) {
+    #footer-intro-non-mobile {display: inline; }
+    
+    #footer { padding-bottom: 1vh; }
+    
+    #wrapper { padding-left: 3vw; }
+} /* min-width 641px */
+
+/* Large screens */
+@media only screen and (min-width: 65.063em) {
+    #footer-text {
+        font-size: 30px;
+        line-height: 40px;
+    }
+} /* min-width 1025px */
+
+/* XXLarge screens */
+@media only screen and (min-width: 120.063em) { 
+    #footer-text {
+        font-size: 35px;
+        line-height: 45px;
+    }
+} /* min-width 1921px, xxlarge screens */
+
+/* ----------- COMMON AMOUNG ALL SIZES ----------- */
+
+#footer {
+    /* border: solid 2px blue; */
+    height: fit-content;
+    padding-bottom: 1vh;
 }
 
 #wrapper {
-    padding: 0 auto;
-    height: max-content;
-    width: max-content;
-    display: inline-block;
+    /* border: solid 2px yellow; */
+    height: fit-content;
+    width: fit-content;
+    display: flex;
 }
 
-#webSocialList {
-    list-style: none;
-    margin: 0;
-    position: relative;
+#footer-text {
+    /* border: solid 2px black; */
+    font-family: Red Hat Display;
+    font-style: normal;
     color: white;
     float: left;
-    top: -0.5vw;
-    border-radius: 25px;
-    padding: 0.5vh;
-    padding-right: 0.5vw;
-    padding-bottom: 0vh;
-    vertical-align: middle;
 }
 
-#webSocialList:hover{
+/* #web-social-div { border: solid 2px green; } */
+
+#share-icon { margin: auto; }
+
+#webSocialList {
+    /* border: solid 2px black; */
+    list-style: none;
+    position: relative;
+    color: white;
+    border-radius: 25px;
+    display: inline-flex;
+    padding-left: 1vh;
+    padding-right: 1vw;
+    padding-bottom: 0;
+}
+
+#webSocialList:hover {
     color: black;
     background-color: #fff;
     border-radius: 25px;
-    display: inline;
     float: left;
 }
 
@@ -46,9 +96,4 @@
     cursor: pointer;
 }
 
-#webSocialList .list-icon {
-    float: left;
-    margin-left: 0.5vw;
-    visibility: hidden;
-    display: inline;
-}
+#webSocialList .list-icon { visibility: hidden; }

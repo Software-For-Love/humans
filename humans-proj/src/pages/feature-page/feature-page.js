@@ -100,7 +100,7 @@ export default function FeaturePage() {
                                     <div class="featured-people">
                                         {
                                             objectData.map((person, index) => {
-                                                // Each array element is represented in a card
+                                                // Each array element is represented individually
 
                                                 return (
                                                     <div class="pic" key={index}>
@@ -114,7 +114,7 @@ export default function FeaturePage() {
                                                                 <p>{person.title}</p>
                                                                 <br></br>
                                                                 <p>{person.desc}</p>
-                                                                <p><button id="all_medias">
+                                                                <p><button id="featured_medias">
                                                                     <img src={insta} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
                                                                     <img src={facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />
                                                                     <img src={twitter} id="twitter_pic" className="photo-for-mainpage" alt="twitter" />

@@ -1,38 +1,175 @@
+/* Foundation */
+
+/* Small screens */
+@media only screen {
+
+    #date-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .arrow-container {
+        display: none;
+    }
+
+    .feature-search {
+        width: 100%;
+    }
+
+    .featured-date {
+        width: 70%;
+    }
+
+    .featured-people {
+        justify-content: space-between;
+    }
+
+    .featured-date:not(:first-child) {
+        display: none;
+    }
+
+
+    #img, #namerec, .picdet, #details {
+        width: 235px;
+    }
+
+    .picdes, #pichead {
+        margin-left: 30px;
+    }
+} /* Define mobile styles */
+
+/* Medium screens */
+@media only screen and (min-width: 40.063em) {
+
+    .arrow-container {
+        display: none;
+    }
+
+    .feature-search {
+        width: 50%;
+    }
+        
+    .featured-people div:first-child {
+        margin-right: 10%;
+    }
+
+    .featured-date {
+        margin-left: 12%;
+    }
+
+    .picdes, #pichead {
+        margin-left: 40px;
+    }
+
+    #img, #namerec, .picdet, #details {
+        width: 250px;
+    }
+} /* min-width 641px, medium screens */
+
+/* Large screens */
+@media only screen and (min-width: 64.063em) {
+
+    .featured-date:not(:first-child) {
+        display: block;
+    }
+
+    #arrow-small {
+        display: none;
+    }
+
+    .arrow-container {
+        margin-left: 0.5%;
+        display: flex;
+    }
+    
+    .featured-people div:first-child {
+        margin-right: 1%;
+    }
+
+    .featured-people {
+        justify-content: flex-start;
+    }
+
+    .featured-date {
+        width: 100%;
+        margin-left: 1%;
+    }
+
+    #img, #namerec, .picdet, #details {
+        width: 235px;
+    }
+
+    .picdes, #pichead {
+        margin-left: 30px;
+    }
+} /* min-width 1025px, large screens */
+
+/* XLarge screens */
+@media only screen and (min-width: 90.063em) {
+
+    #img, #namerec, #picdet, #details {
+        width: 250px;
+    }
+
+    .arrow-container {
+        margin-left: 5%;
+    }
+    
+    .featured-people div:first-child {
+        margin-right: 12%;
+    }
+
+    .featured-date {
+        margin-left: 4%;
+    }
+    
+    .picdes, #pichead {
+        margin-left: 40px;
+    }
+} /* min-width 1441px, xlarge screens */
+
 #feature-page {
     background: url(../../../static/images/home4-background.png);
     background-size: cover;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     min-height: 100%;
     min-width: 100%;
     width: 100%;
     height: auto;
-    overflow-y: auto;
+    z-index: -1;
 }
 
+.feature-container {
+    height: 100%;
+    width: 100%;
+}
 
 .button{
     cursor: pointer;
 }
 
+.feature-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height:50px;
+}
 
 #afbar{
     width:100%;
-    height:5%;
+    height:50px;
     background-color:white;
     opacity:0.4;
-    margin-top: 10px;
-    margin-left:0px;
-    z-index:-1;
-    position:absolute;
+    position: absolute;
 }
 
 .dropdown{
     display: inline-block;
-    top:185px;
-    position:absolute;
-    margin-left:-1180px;
+    z-index: 2;
 }
 
 .dropdown_content{
@@ -56,26 +193,41 @@
     color:white;
     font-size: 20px;
     text-align: center;
+    height: 90%;
+    width: 85px;
 }
 #search_bar {
     background-color: transparent;
     border-color:transparent;
-    height:30px;
+    height:5vh;
     width:400px;
     background-image: url(../../../static/images/mag.png);
     background-repeat:no-repeat;
-    background-position: 5px -1px;
-    padding-left:40px;
-    margin-top:14px;
-    margin-left:200px;
+    background-position: 0px center;
+    padding-left: 30px;
+    margin-left: 2vw;
+    z-index: 2;
 }
-
 
 ::placeholder{
     color:white;
     font-size:20px;
 }
 
+.featured-contents, .featured-people {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+}
+
+.featured-contents {
+    width: 90%;
+}
+
+.featured-people {
+    width: 100%;
+}
 
 #mag{
     margin-top:90px;
@@ -90,7 +242,6 @@
     font-weight:700;
     position:absolute;
     margin-left:5%;
-    z-index:-1;
 }
 
 #m2{
@@ -98,26 +249,22 @@
     font-family: Red Hat Display;
     font-size:40px;
     font-weight:700;
-    position:absolute;
-    margin-left:47%; 
-    z-index:-1;
 }
 
-.pic1{
-    position:absolute;
-    margin-left:5%;
-    margin-top:7%;
+.pic{
+    transition: transform 0.3s;
 }
 
-#img1{
-    width:250px;
+#img{
     height:400px;
-    position:absolute;
-    z-index:-1;
+    position: absolute;
 }
 
-#details1{
-    width:250px;
+.picdet {
+    height:450px;
+}
+
+#details{
     height:400px;
     background-color:black;
     opacity:0.7;
@@ -125,27 +272,25 @@
     margin-left:6px;
     position:absolute;
     display:none;
+    margin-right: 0px;
 }
 
-.pic1des{
+.picdes{
     position:absolute;
     color:white;
     width:200px;
-    margin-left:40px;
     font-family: Red Hat Display;
     margin-top:40px;
     display:none;
-
 }
 
-#pic1head{
+#pichead{
     font-weight: 500;
     font-size:25px;
     position:absolute;
     color:white;
     font-family: Red Hat Display;
     line-height: 33.07px;
-    margin-left:40px;
     width:200px;
     display:none;
 }
@@ -176,7 +321,7 @@
     cursor: pointer;
 }
 
-#all_medias1{
+#featured_medias{
     background-color:white;
     position:absolute;
     border-radius: 40px;
@@ -185,24 +330,23 @@
     margin-top:30px;
 }
 
-.pic1:hover .pic1des{
+.pic:hover .picdes{
     display:block;
 }
 
-.pic1:hover #pic1head{
+.pic:hover #pichead{
     display:block;
 }
 
-.pic1:hover #details1{
+.pic:hover #details{
     display:block;
 }
 
-.pic1:hover #name1{
+.pic:hover #name{
     display:none;
 }
 
-#namerec1{
-    width:250px;
+#namerec{
     height:50px;
     background-color:black;
     margin-top:390px;
@@ -210,7 +354,7 @@
     position:absolute;
 }
 
-#name1{
+#name{
     font-weight: 500;
     font-size:25px;
     position:absolute;
@@ -222,307 +366,19 @@
     margin-top:400px;
 }
 
-
-.pic2{
-    position:absolute;
-    margin-left:23%;
-    margin-top:7%;
+.arrow-container {
+    flex-flow: row;
+    align-items: center;
 }
 
-#img2{
-    width:250px;
-    height:400px;
-    position:absolute;
-    z-index:-1;
-}
-
-#details2{
-    width:250px;
-    height:400px;
-    background-color:black;
-    opacity:0.7;
-    margin-top:-5px;
-    margin-left:6px;
-    position:absolute;
-    display:none;
-}
-
-.pic2des{
-    position:absolute;
-    color:white;
-    width:200px;
-    margin-left:40px;
-    font-family: Red Hat Display;
-    margin-top:40px;
-    display:none;
-
-}
-
-#pic2head{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    margin-left:40px;
-    width:200px;
-    display:none;
-}
-
-
-#all_medias2{
-    background-color:white;
-    position:absolute;
-    border-radius: 40px;
-    width:200px;
-    height:23px;
-    margin-top:30px;
-}
-
-.pic2:hover .pic2des{
-    display:block;
-}
-
-.pic2:hover #pic2head{
-    display:block;
-}
-
-.pic2:hover #details2{
-    display:block;
-}
-
-.pic2:hover #name2{
-    display:none;
-}
-
-#namerec2{
-    width:250px;
-    height:50px;
-    background-color:black;
-    margin-top:390px;
-    margin-left:6px;
-    position:absolute;
-}
-
-#name2{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    width:200px;
-    margin-left:45px;
-    margin-top:400px;
-}
-
-.pic3{
-    position:absolute;
-    margin-left:47%;
-    margin-top:7%;
-}
-
-#img3{
-    width:250px;
-    height:400px;
-    position:absolute;
-    z-index:-1;
-}
-
-#details3{
-    width:250px;
-    height:400px;
-    background-color:black;
-    opacity:0.7;
-    margin-top:-5px;
-    margin-left:6px;
-    position:absolute;
-    display:none;
-}
-
-.pic3des{
-    position:absolute;
-    color:white;
-    width:200px;
-    margin-left:40px;
-    font-family: Red Hat Display;
-    margin-top:40px;
-    display:none;
-
-}
-
-#pic3head{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    margin-left:40px;
-    width:200px;
-    display:none;
-}
-
-
-#all_medias3{
-    background-color:white;
-    position:absolute;
-    border-radius: 40px;
-    width:200px;
-    height:23px;
-    margin-top:30px;
-}
-
-.pic3:hover .pic3des{
-    display:block;
-}
-
-.pic3:hover #pic3head{
-    display:block;
-}
-
-.pic3:hover #details3{
-    display:block;
-}
-
-.pic3:hover #name3{
-    display:none;
-}
-
-#namerec3{
-    width:250px;
-    height:50px;
-    background-color:black;
-    margin-top:390px;
-    margin-left:6px;
-    position:absolute;
-}
-
-#name3{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    width:200px;
-    margin-left:45px;
-    margin-top:400px;
-}
-
-.pic4{
-    position:absolute;
-    margin-left:65%;
-    margin-top:7%;
-}
-
-#img4{
-    width:250px;
-    height:400px;
-    position:absolute;
-    z-index:-1;
-}
-
-#details4{
-    width:250px;
-    height:400px;
-    background-color:black;
-    opacity:0.7;
-    margin-top:-5px;
-    margin-left:6px;
-    position:absolute;
-    display:none;
-}
-
-.pic4des{
-    position:absolute;
-    color:white;
-    width:200px;
-    margin-left:40px;
-    font-family: Red Hat Display;
-    margin-top:40px;
-    display:none;
-
-}
-
-#pic4head{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    margin-left:40px;
-    width:200px;
-    display:none;
-}
-
-
-#all_medias4{
-    background-color:white;
-    position:absolute;
-    border-radius: 40px;
-    width:200px;
-    height:23px;
-    margin-top:30px;
-}
-
-.pic4:hover .pic4des{
-    display:block;
-}
-
-.pic4:hover #pic4head{
-    display:block;
-}
-
-.pic4:hover #details4{
-    display:block;
-}
-
-.pic4:hover #name4{
-    display:none;
-}
-
-#namerec4{
-    width:250px;
-    height:50px;
-    background-color:black;
-    margin-top:390px;
-    margin-left:6px;
-    position:absolute;
-}
-
-#name4{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    width:200px;
-    margin-left:45px;
-    margin-top:400px;
-}
-
-#arrow1{
-    color:white;
-    font-size:30px;
-    font-weight:bold;
-    margin-left:93%;
-    margin-top:20%;
-    position:absolute;
+#arrow-small {
     cursor: pointer;
 }
 
-#arrow2{
-    color:rgba(255, 255, 255, 0.699);
-    font-size:20px;
-    font-weight:bold;
-    margin-left:92%;
-    margin-top:20.4%;
-    position:absolute;
-    cursor:pointer;
+#arrow{
+    font-size:30px;
+    margin-top:20%;
+    cursor: pointer;
 }
 
 #nominatebar{
@@ -530,17 +386,17 @@
     height:250px;
     background-color:black;
     opacity:0.5;
-    margin-top:600px;
-    position:absolute;
+    margin-bottom: 2em;
 }
 
 .nominatebartxt{
     color:white;
     font-family: Red Hat Display;
     font-size:25px;
-    width:600px;
+    width:100%;
+    padding-top: 0.1em;
+    margin-top: 0.8em;
     text-align:center;
-    margin-left:32.5%;
 }
 
 #nominate_button{

@@ -38,7 +38,7 @@
 
     #can-contact-checkbox { margin-top: 0.5vh; }
 
-    #spinner { display: none; }
+    #stationary { display: none; }
 
     #submit-button {
         height: 5vh;
@@ -73,7 +73,7 @@
 
     #can-contact-checkbox { margin: auto; }
 
-    #spinner { margin-bottom: 2vh; }
+    #stationary { margin-bottom: 2vh; }
 
     #caption-border {
         margin: 0 auto;
@@ -101,7 +101,7 @@
         font-size: 18px;
     }
 
-    #spinner { display: block; } 
+    #stationary { display: block; } 
 
     #description-text-input { font-size: 18px; }
 
@@ -221,15 +221,15 @@ input[type="checkbox"] {
     font-weight: bold;
     color: #000000;
 }
-
-#spinner {
+/*
+#stationary {
     border: #FFFFFF solid 2px;
     position: relative;
-    -webkit-animation-name: spinner;
+    -webkit-animation-name: stationary;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-duration: 6s;
-    animation-name: spinner;
+    animation-name: stationary;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -237,16 +237,16 @@ input[type="checkbox"] {
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
-}
+}*/
 
   /* WebKit and Opera browsers */
-@-webkit-keyframes spinner {
+/*@-webkit-keyframes stationary {
     from { -webkit-transform: rotateY(0deg);    }
     to   { -webkit-transform: rotateY(-360deg); }
-}
+}*/
 
   /* all other browsers */
-@keyframes spinner {
+/*@keyframes stationary {
     from {
       -moz-transform: rotateY(0deg);
       -ms-transform: rotateY(0deg);
@@ -257,7 +257,7 @@ input[type="checkbox"] {
       -ms-transform: rotateY(-360deg);
       transform: rotateY(-360deg);
     }
-}
+}*/
 
 #picture { object-fit: cover; }
 

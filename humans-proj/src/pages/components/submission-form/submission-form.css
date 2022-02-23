@@ -38,7 +38,7 @@
 
     #can-contact-checkbox { margin-top: 0.5vh; }
 
-    #stationary { display: none; }
+    #form-image-container { display: none; }
 
     #submit-button {
         height: 5vh;
@@ -73,7 +73,7 @@
 
     #can-contact-checkbox { margin: auto; }
 
-    #stationary { margin-bottom: 2vh; }
+    #form-image-container { margin-bottom: 2vh; }
 
     #caption-border {
         margin: 0 auto;
@@ -101,7 +101,7 @@
         font-size: 18px;
     }
 
-    #stationary { display: block; } 
+    #form-image-container { display: block; } 
 
     #description-text-input { font-size: 18px; }
 
@@ -222,7 +222,7 @@ input[type="checkbox"] {
     color: #000000;
 }
 
-#stationary {
+#form-image-container {
     border: #FFFFFF solid 2px;
     position: relative;
 }

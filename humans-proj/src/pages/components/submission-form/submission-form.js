@@ -110,7 +110,7 @@ export default class SubmissionForm extends Component {
                      Don’t fill this out: <input name="bot-field" onChange={this.handleChange} />
                     </label>
                      </p>
-                    <div id="stationary" style={{ float: "right" }}>
+                    <div id="form-image-container" style={{ float: "right" }}>
                         <img
                             id="picture"
                             src={this.props.image}

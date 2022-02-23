@@ -3,130 +3,120 @@
 /* Small screens */
 @media only screen {
 
-    #date-container {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .arrow-container {
-        display: none;
+    #m2 {
+        font-size: 32px;
     }
 
     .feature-search {
         width: 100%;
     }
 
-    .featured-date {
-        width: 70%;
+    .featured-contents {
+        margin-left: 0%;
+        column-gap: 0%;
     }
 
-    .featured-people {
-        justify-content: space-between;
+    #name {
+        margin-left:15px;
     }
-
-    .featured-date:not(:first-child) {
-        display: none;
-    }
-
 
     #img, #namerec, .picdet, #details {
-        width: 235px;
+        width: 215px;
     }
 
     .picdes, #pichead {
-        margin-left: 30px;
+        margin-left: 24px;
+    }
+
+    .arrow-container {
+        margin-right: 2vw;
     }
 } /* Define mobile styles */
 
 /* Medium screens */
 @media only screen and (min-width: 40.063em) {
 
-    .arrow-container {
-        display: none;
+    #m2 {
+        font-size: 40px;
     }
 
     .feature-search {
         width: 50%;
     }
-        
-    .featured-people div:first-child {
-        margin-right: 10%;
+    
+    .featured-contents {
+        margin-left: 3%;
+        column-gap: 3%;
     }
 
-    .featured-date {
-        margin-left: 12%;
+    #name {
+        margin-left:35px;
     }
 
     .picdes, #pichead {
-        margin-left: 40px;
+        margin-left: 34px;
     }
 
     #img, #namerec, .picdet, #details {
         width: 250px;
+    }
+
+    .arrow-container {
+        margin-right: 12vw;
     }
 } /* min-width 641px, medium screens */
 
 /* Large screens */
 @media only screen and (min-width: 64.063em) {
 
-    .featured-date:not(:first-child) {
-        display: block;
-    }
-
     #arrow-small {
         display: none;
     }
 
-    .arrow-container {
-        margin-left: 0.5%;
-        display: flex;
-    }
-    
-    .featured-people div:first-child {
-        margin-right: 1%;
-    }
-
-    .featured-people {
-        justify-content: flex-start;
-    }
-
-    .featured-date {
-        width: 100%;
-        margin-left: 1%;
-    }
-
     #img, #namerec, .picdet, #details {
-        width: 235px;
+        width: 230px;
+    }
+
+    .featured-contents {
+        margin-left: 1%;
+        column-gap: 1.5%;
+    }
+
+    #name {
+        margin-left:25px;
     }
 
     .picdes, #pichead {
-        margin-left: 30px;
+        margin-left: 24px;
+    }
+
+    .arrow-container {
+        margin-right: 5vw;
     }
 } /* min-width 1025px, large screens */
 
 /* XLarge screens */
 @media only screen and (min-width: 90.063em) {
 
-    #img, #namerec, #picdet, #details {
+    #img, #namerec, .picdet, #details {
         width: 250px;
     }
 
-    .arrow-container {
+    .featured-contents {
         margin-left: 5%;
+        column-gap: 7%;
     }
     
-    .featured-people div:first-child {
-        margin-right: 12%;
+    #name {
+        margin-left:35px;
     }
 
-    .featured-date {
-        margin-left: 4%;
-    }
-    
     .picdes, #pichead {
-        margin-left: 40px;
+        margin-left: 34px;
+    }
+
+    .arrow-container {
+        margin-right: 8vw;
     }
 } /* min-width 1441px, xlarge screens */
 
@@ -209,24 +199,29 @@
     z-index: 2;
 }
 
+#date-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
 ::placeholder{
     color:white;
     font-size:20px;
 }
 
-.featured-contents, .featured-people {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    height: 100%;
-}
-
-.featured-contents {
-    width: 90%;
+.featured-people, .featured-contents, .featured-date {
+    display: grid;
 }
 
 .featured-people {
-    width: 100%;
+    justify-content: space-between;
+}
+
+.featured-people > div, .featured-contents > div {
+    grid-row: 1;
 }
 
 #mag{
@@ -247,12 +242,42 @@
 #m2{
     color:#F6B6B6;
     font-family: Red Hat Display;
-    font-size:40px;
     font-weight:700;
 }
 
 .pic{
-    transition: transform 0.3s;
+    -webkit-animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s;
+    -ms-animation: fadein 0.5s;
+    -o-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.person-btn {
+    padding: 0px;
 }
 
 #img{
@@ -269,7 +294,6 @@
     background-color:black;
     opacity:0.7;
     margin-top:-5px;
-    margin-left:6px;
     position:absolute;
     display:none;
     margin-right: 0px;
@@ -350,7 +374,6 @@
     height:50px;
     background-color:black;
     margin-top:390px;
-    margin-left:6px;
     position:absolute;
 }
 
@@ -362,13 +385,12 @@
     font-family: Red Hat Display;
     line-height: 33.07px;
     width:200px;
-    margin-left:45px;
     margin-top:400px;
 }
 
 .arrow-container {
-    flex-flow: row;
-    align-items: center;
+    justify-self: end;
+    align-self: center;
 }
 
 #arrow-small {

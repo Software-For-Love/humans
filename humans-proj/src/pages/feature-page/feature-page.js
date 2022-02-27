@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from 'gatsby';
 import Header from "../components/Header/Header";
 import "./feature-page.css";
 import Footer from "../components/Footer/Footer";
@@ -12,14 +13,26 @@ import facebook from '../../../static/images/facebook_icon.png';
 import twitter from '../../../static/images/twitter_icon.png';
 import internet from '../../../static/images/internet_icon.png';
 
+// Temporary file to use redirects for currently featured page
+import temp_file from "../../data/currently-featured.yaml";
+
 /**
  * Featured data should be stored here based on the month and year that it matches to.
  * 
  * Every month should have an array containing an object that represents a featured person
  * which has an associated name, last name, title, description and image.
  * 
- * In the future, this data will likely be stored on the backend and should be accessed from there.
- * Data should still have a similar structure.
+ * If integrating yaml files, instead just change this object so that it stores a collection of
+ * dates which map to an array of yaml files
+ * 
+ * "Date1": [
+ *      yaml_file1,
+ *      yaml_file2,
+ *      yaml_file3
+ * ], "Date2": [...
+ * 
+ * Yaml files may have different names for their element mappings, you can update the featured people 
+ * cards below to reflect the mapped names
  */
 
 const featuredData =
@@ -85,7 +98,7 @@ export default function FeaturePage() {
     const [startDateIndex, setStartDateIndex] = useState(0);
     const [startPeopleIndex, setStartPeopleIndex] = useState(0);
 
-    // These variables make it easier to navigate between featured people
+    // These variables handle navigation between people
     const [lengths, setLengths] = useState([]);
     const [size, setSize] = useState(4);
     const renderSize = useRef(0);
@@ -171,7 +184,7 @@ export default function FeaturePage() {
                                 elements.push(Object.keys(featuredData).map((date, dateIndex) => {
                                     const objectData = featuredData[date];
                                     // Map all elements in the array to the specified date
-                                    if (renderSize.current <= 0 || (dateIndex < startDateIndex && !repeat)) return;
+                                    if (renderSize.current <= 0 || (dateIndex < startDateIndex && !repeat)) return <></>;
                                     return (
                                         <div class="featured-date">
                                             <div id="date-container">
@@ -181,11 +194,19 @@ export default function FeaturePage() {
                                                 {
                                                     objectData.map((person, personIndex) => {
                                                         if (renderSize.current <= 0 || 
-                                                            (dateIndex == startDateIndex && !repeat && personIndex < startPeopleIndex)) return;
+                                                            (dateIndex === startDateIndex && !repeat && personIndex < startPeopleIndex)) return <></>;
                                                         // Each array element is represented individually
                                                         renderSize.current--;
                                                         return (
+
+                                                            // Each featured person card should reference a yaml file, read the comments above near the featuredData
+                                                            // object as to how each yaml file should be handled
+
+                                                            // This 'file' props being passed through the Link should be updated when yaml files are integrated.
+                                                            // The 'file' should reference the featured person's yaml file.
+
                                                             <div class="pic" key={personIndex}>
+                                                                <Link to="/feature-page/currently-featured/" state={{ file : temp_file }}>
                                                                 <button class="person-btn"><img id="img" src={person.img} alt="person" /></button>
                                                                 <div class="square" id="namerec"></div>
                                                                 <div id="name">{person.name} {person.lastName}</div>
@@ -204,6 +225,7 @@ export default function FeaturePage() {
                                                                         </button></p>
                                                                     </div>
                                                                 </div>
+                                                                </Link>
                                                             </div>
                                                         )
                                                     })

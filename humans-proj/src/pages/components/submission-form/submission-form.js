@@ -40,7 +40,7 @@ export default class SubmissionForm extends Component {
                 descriptionError : (this.state.description.length < 1 ? '*Please enter description!':'')
 
         }});
-        console.log(this.state.errors)
+        // console.log(this.state.errors)
     }
     handleChange(event) {
         const { name, value,id, type} = event.target
@@ -75,7 +75,7 @@ export default class SubmissionForm extends Component {
     
             }
             this.setState({errors,[name]:value}, () => {
-                console.log(errors)
+                // console.log(errors)
             })
             
         }

@@ -152,7 +152,7 @@ export default function Home() {
                             <footer id="non-mobile-design-home">
                                 {/* TIME */}
                                 <div id="footer-time">
-                                    <p>{time.format('HH:mm:ss')}<br />{"EST: " + time.format('L')}</p>
+                                    <p>{new Date().toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2] + ": " + time.format('HH:mm:ss')}<br />{time.format('L')}</p>
                                 </div>
 
                                 {/* LEARN MORE */}

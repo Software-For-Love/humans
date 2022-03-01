@@ -28,7 +28,6 @@
     #description-text-input {
         font-size: 16.5px;
         height: 12vh;
-        width: 80vw;
     }
 
     #consent {
@@ -56,11 +55,6 @@
     }
 
     label { font-size: 18px; }
-    
-    textarea {
-        width: 37vw;
-        padding: 1vh 1vw 0vh 2vw;
-    }
     
     #description-text { margin-top: 6vh; }
 

@@ -28,7 +28,6 @@
     #description-text-input {
         font-size: 16.5px;
         height: 12vh;
-        width: 80vw;
     }
 
     #consent {
@@ -38,7 +37,7 @@
 
     #can-contact-checkbox { margin-top: 0.5vh; }
 
-    #spinner { display: none; }
+    #form-image-container { display: none; }
 
     #submit-button {
         height: 5vh;
@@ -57,11 +56,6 @@
 
     label { font-size: 18px; }
     
-    textarea {
-        width: 37vw;
-        padding: 1vh 1vw 0vh 2vw;
-    }
-    
     #description-text { margin-top: 6vh; }
 
     #description-text-input { font-size: 14px; }
@@ -73,7 +67,7 @@
 
     #can-contact-checkbox { margin: auto; }
 
-    #spinner { margin-bottom: 2vh; }
+    #form-image-container { margin-bottom: 2vh; }
 
     #caption-border {
         margin: 0 auto;
@@ -101,7 +95,7 @@
         font-size: 18px;
     }
 
-    #spinner { display: block; } 
+    #form-image-container { display: block; } 
 
     #description-text-input { font-size: 18px; }
 
@@ -222,41 +216,9 @@ input[type="checkbox"] {
     color: #000000;
 }
 
-#spinner {
+#form-image-container {
     border: #FFFFFF solid 2px;
     position: relative;
-    -webkit-animation-name: spinner;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 6s;
-    animation-name: spinner;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-
-  /* WebKit and Opera browsers */
-@-webkit-keyframes spinner {
-    from { -webkit-transform: rotateY(0deg);    }
-    to   { -webkit-transform: rotateY(-360deg); }
-}
-
-  /* all other browsers */
-@keyframes spinner {
-    from {
-      -moz-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-    }
-    to {
-      -moz-transform: rotateY(-360deg);
-      -ms-transform: rotateY(-360deg);
-      transform: rotateY(-360deg);
-    }
 }
 
 #picture { object-fit: cover; }

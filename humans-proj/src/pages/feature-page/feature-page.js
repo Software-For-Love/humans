@@ -22,14 +22,15 @@ import temp_file from "../../data/currently-featured.yaml";
  * Every month should have an array containing an object that represents a featured person
  * which has an associated name, last name, title, description and image.
  * 
- * If integrating yaml files, instead just change this object so that it stores a collection of
- * dates which map to an array of yaml files
+ * When integrating the yaml file, you can replace the object below with a yaml file like this
  * 
- * "Date1": [
- *      yaml_file1,
- *      yaml_file2,
- *      yaml_file3
- * ], "Date2": [...
+ * "yaml_date1": [
+ *      yaml_section1,
+ *      yaml_section2,
+ *      yaml_section3
+ * ], "yaml_date2": [...
+ * 
+ * The yaml file should ideally follow a similar structure where each person is mapped to a specific date
  * 
  * Yaml files may have different names for their element mappings, you can update the featured people 
  * cards below to reflect the mapped names
@@ -187,9 +188,11 @@ export default function FeaturePage() {
                                     if (renderSize.current <= 0 || (dateIndex < startDateIndex && !repeat)) return <></>;
                                     return (
                                         <div class="featured-date">
+
                                             <div id="date-container">
                                                 <h2 id="m2">{date}</h2>
                                             </div>
+                                            
                                             <div class="featured-people">
                                                 {
                                                     objectData.map((person, personIndex) => {
@@ -206,7 +209,14 @@ export default function FeaturePage() {
                                                             // The 'file' should reference the featured person's yaml file.
 
                                                             <div class="pic" key={personIndex}>
+
+                                                                {
+                                                                    // The file that is being sent in the currently featured page should represent a similar structure
+                                                                    // to one of the person sections in the yaml file, under a date
+                                                                }
+
                                                                 <Link to="/feature-page/currently-featured/" state={{ file : temp_file }}>
+
                                                                 <button class="person-btn"><img id="img" src={person.img} alt="person" /></button>
                                                                 <div class="square" id="namerec"></div>
                                                                 <div id="name">{person.name} {person.lastName}</div>

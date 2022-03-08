@@ -1,6 +1,6 @@
 import React from 'react';
 import './contact-us.css';
-import SubmissionForm from '../components/submission-form/submission-form';
+import SubmissionForm from '../components/submission-form/contact-form';
 import photo from '../../../static/images/contact-us-side-photo.png';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';

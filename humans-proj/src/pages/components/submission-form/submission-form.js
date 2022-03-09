@@ -45,6 +45,8 @@ export default class SubmissionForm extends Component {
                 new link("Tiktok", ""),
                 new link("", "")
             ],
+            // This represents the amount of fixed social media links we want in the links above
+            socialMediaRequirements: 3,
             errors: {
                 nominatorNameError: '',
                 nomineeNameError: '',
@@ -62,6 +64,7 @@ export default class SubmissionForm extends Component {
         this.handleNewLink = this.handleNewLink.bind(this)
         this.handleLinkRemove = this.handleLinkRemove.bind(this)
     }
+
     onClickSubmit() {
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         this.setState({
@@ -180,8 +183,10 @@ export default class SubmissionForm extends Component {
                         </div>
                     </div>
 
+                    <div className="personTag"><h3 className="personTitle">Nominator Information</h3></div>
+
                     <div>
-                        <label>Name
+                        <label>Name *
                             <br style={{ lineHeight: "2" }} />
                             <textarea
                                 name="nominatorName"
@@ -194,7 +199,7 @@ export default class SubmissionForm extends Component {
 
                         <br style={{ lineHeight: "2" }} />
 
-                        <label htmlFor="email">Email
+                        <label htmlFor="email">Email *
                             <br style={{ lineHeight: "2" }} />
                             <input id="textarea"
                                 name="email"
@@ -207,10 +212,10 @@ export default class SubmissionForm extends Component {
 
                     </div>
 
-                    <div className="nomineeTag"><h3 className="nomineeTitle">Nominee Information</h3></div>
+                    <div className="personTag"><h3 className="personTitle">Nominee Information</h3></div>
 
                     <div>
-                        <label>Name
+                        <label>Name *
                             <br style={{ lineHeight: "2" }} />
                             <textarea
                                 name="nomineeName"
@@ -230,13 +235,20 @@ export default class SubmissionForm extends Component {
                                             <div id="textarea" className="linkDisplay">
                                                 <input className="linkName" value={link.getPlatform()}
                                                     placeholder="Add platform..."
+                                                    disabled={index < this.state.socialMediaRequirements}
                                                     onChange={(e) => this.handleLinkPlatformChange(e, index)} />
 
-                                                <input value={link.getUrl()} className="linkInput"
-                                                    onChange={(e) => this.handleLinkUrlChange(e, index)} />
+                                                <div className="linkInputContainer">
+                                                    <input value={link.getUrl()} className="linkInput"
+                                                        onChange={(e) => this.handleLinkUrlChange(e, index)} />
+                                                    {
+                                                        index < this.state.socialMediaRequirements ?
+                                                            <></> :
+                                                            <input type="button" value="&#128473;" className="linkClose"
+                                                                onClick={() => this.handleLinkRemove(index)} />
+                                                    }
+                                                </div>
 
-                                                <input type="button" value="&#128473;" className="linkClose"
-                                                    onClick={() => this.handleLinkRemove(index)} />
                                             </div>
                                         )
                                     })
@@ -254,7 +266,7 @@ export default class SubmissionForm extends Component {
                     </div>
 
                     <div id="description-text">
-                        <label>Why Should They Be Featured?
+                        <label>Why Should They Be Featured? *
                             <br style={{ lineHeight: "2" }} />
                             <textarea
                                 id="description-text-input"
@@ -275,8 +287,9 @@ export default class SubmissionForm extends Component {
                             value={this.state.canContact}
                             onChange={this.handleChange} required
                         />
-                        <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted.</label>
+                        <label id="consent" for="can-contact-checkbox">I understand that this form is storing my submitted information so I can be contacted. *</label>
                     </div>
+                    <h5 className="asteriskWarning">Fields marked with an asterisk (*) are required</h5>
 
                     <button id="submit-button" input type="submit" onClick={this.onClickSubmit}>SUBMIT</button>
                 </form>

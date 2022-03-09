@@ -30,15 +30,19 @@
         border-radius: 33px;
     }
 
+    .addLinkButton {
+        width: 10vw;
+    }
+
     .linkName {
-        width: 20vw;
+        width: 58%;
     }
 
-    .linkInput {
-        width: 50vw;
+    .linkInputContainer {
+        margin-right: 2%;
     }
 
-    .nomineeTag {
+    .personTag {
         width: 70vw;
         font-size: 14px;
     }
@@ -85,6 +89,14 @@
         font-size: 18px;
     }
 
+    .linkName {
+        width: 100%;
+    }
+
+    .addLinkButton {
+        width: 7.2vw;
+    }
+
     #can-contact-checkbox { margin: auto; }
 
     #form-image-container { margin-bottom: 2vh; }
@@ -114,18 +126,22 @@
         padding: 1.2vh 1vw 0vh 2vw;
     }
     
-    textarea, #textarea, .nomineeTag, .addLink {
+    textarea, #textarea, .personTag, .addLink {
         width: 45vw;
         font-size: 18px;
     }
 
-    .linkName {
+    .addLinkButton {
+        width: 5vw;
+    }
+
+    /* .linkName {
         width: 15vw;
     }
 
-    .linkInput {
+    .linkInput, .linkInputContainer {
         width: 30vw;
-    }
+    } */
 
     #form-image-container { display: block; } 
 
@@ -152,7 +168,7 @@
         padding: 1vh 1vw 0vh 2vw;
     }
 
-    textarea, #textarea, .nomineeTag { font-size: 26px; }
+    textarea, #textarea, .personTag { font-size: 26px; }
 
     #description-text-input { font-size: 26px; }
 
@@ -184,11 +200,16 @@
     color: #FFFFFF;
 }
 
-label, .nomineeTag, .linkName, .linkInput {
+label, .personTag, .linkName, .linkInput, .asteriskWarning {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
     color: #FFFFFF;
+}
+
+.asteriskWarning {
+    margin-top: 1%;
+    margin-bottom: 0%;
 }
 
 textarea, #textarea  {
@@ -203,7 +224,7 @@ textarea, #textarea  {
     box-sizing: border-box;
 }
 
-.nomineeTag {
+.personTag {
     margin-top: 5vh;
     margin-bottom: 1vh;
     box-sizing: border-box;
@@ -211,7 +232,7 @@ textarea, #textarea  {
     text-align: center;
 }
 
-.nomineeLinkTag, .nomineeTag, .addLinkButton {
+.nomineeLinkTag, .personTag, .addLinkButton {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
@@ -237,6 +258,23 @@ textarea, #textarea  {
     border-width: 0;
     padding-left: 2%;
     font-size: medium;
+}
+
+.linkName {
+    flex-grow: 1;
+}
+
+.linkInput {
+    width: 100%;
+}
+
+.linkInputContainer {    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 2;
 }
 
 .linkName {
@@ -270,7 +308,6 @@ textarea, #textarea  {
 
 .addLinkButton {
     border-radius: 10px;
-    width: 5vw;
 }
 
 #description-text {

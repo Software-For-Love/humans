@@ -146,7 +146,7 @@ export default class ContactForm extends Component {
 
                     <label htmlFor="email">Email</label>
                     <br style={{ lineHeight: "2" }} />
-                    <input id = "email" 
+                    <input id = "textarea" 
                         name="email"
                         input type="email"
                         value={this.state.email}

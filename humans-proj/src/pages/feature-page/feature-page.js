@@ -15,7 +15,7 @@ import internet from '../../../static/images/internet_icon.png';
 
 // Temporary file to use redirects for currently featured page
 import temp_file from "../../data/currently-featured.yaml";
-
+import yamdata from "../../data/all-features-page/all-features.yaml"
 /**
  * Featured data should be stored here based on the month and year that it matches to.
  * 
@@ -35,67 +35,67 @@ import temp_file from "../../data/currently-featured.yaml";
  * cards below to reflect the mapped names
  */
 
-const featuredData =
-{
-    "2021 August": [
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img1
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img2
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img3
-        }
-    ],
-    "2021 July": [
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img4
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img1
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img2
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img3
-        }
-    ]
-}
+// const featuredData =
+// {
+//     "2021 August": [
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img1
+//         },
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img2
+//         },
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img3
+//         }
+//     ],
+//     "2021 July": [
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img4
+//         },
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img1
+//         },
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img2
+//         },
+//         {
+//             name: "Name",
+//             lastName: "LastName",
+//             title: "Journalist",
+//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
+//             img: img3
+//         }
+//     ]
+// }
 
-export default function FeaturePage() {
-
+export default function FeaturePage(props) {
+    const featuredData = props.location.state && props.location.state.file ? props.location.state.file : yamdata;
     // Keeps track of the featured people visible on screen
-    const [startDateIndex, setStartDateIndex] = useState(0);
+    const [startActivistIndex, setStartActivistIndex] = useState(0);
     const [startPeopleIndex, setStartPeopleIndex] = useState(0);
 
     // These variables handle navigation between people
@@ -116,10 +116,9 @@ export default function FeaturePage() {
         setSize(windowSize);
 
         const currentLengths = [];
-
+       
         for (const featuredPeople in featuredData) {
             const len = featuredData[featuredPeople].length;
-
             currentLengths.push(len);
         }
 
@@ -132,12 +131,12 @@ export default function FeaturePage() {
     function handleCarousel() {
 
         // Increments the beginning index
-        const len = lengths[startDateIndex];
+        const len = lengths[startActivistIndex];
         const newStartPeopleIndex = startPeopleIndex + 1;
 
         if (newStartPeopleIndex >= len) {
 
-            setStartDateIndex((startDateIndex + 1) % lengths.length);
+            setStartActivistIndex((startActivistIndex + 1) % lengths.length);
             setStartPeopleIndex(0);
 
         } else {
@@ -146,7 +145,7 @@ export default function FeaturePage() {
 
         }
     }
-
+// sort humans by month 
     return (
         <div id="feature-page">
             <Header />
@@ -179,22 +178,22 @@ export default function FeaturePage() {
                             renderSize.current = size;
                             const elements = [];
                             let repeat = false;
-
+// TODO: replace date, dateindex with id, ActivistIdIndex
                             while (renderSize.current > 0) {
-                                elements.push(Object.keys(featuredData).map((date, dateIndex) => {
-                                    const objectData = featuredData[date];
+                                elements.push(Object.keys(featuredData).map((id, ActivistIndex) => {
+                                    const objectData = featuredData[id];
                                     // Map all elements in the array to the specified date
-                                    if (renderSize.current <= 0 || (dateIndex < startDateIndex && !repeat)) return <></>;
+                                    if (renderSize.current <= 0 || (ActivistIndex < startActivistIndex && !repeat)) return <></>;
                                     return (
                                         <div class="featured-date">
                                             <div id="date-container">
-                                                <h2 id="m2">{date}</h2>
+                                                <h2 id="m2">{id}</h2>
                                             </div>
                                             <div class="featured-people">
                                                 {
                                                     objectData.map((person, personIndex) => {
                                                         if (renderSize.current <= 0 || 
-                                                            (dateIndex === startDateIndex && !repeat && personIndex < startPeopleIndex)) return <></>;
+                                                            (ActivistIndex === startActivistIndex && !repeat && personIndex < startPeopleIndex)) return <></>;
                                                         // Each array element is represented individually
                                                         renderSize.current--;
                                                         return (
@@ -204,24 +203,23 @@ export default function FeaturePage() {
 
                                                             // This 'file' props being passed through the Link should be updated when yaml files are integrated.
                                                             // The 'file' should reference the featured person's yaml file.
-
                                                             <div class="pic" key={personIndex}>
-                                                                <Link to="/feature-page/currently-featured/" state={{ file : temp_file }}>
-                                                                <button class="person-btn"><img id="img" src={person.img} alt="person" /></button>
+                                                                <Link to="/feature-page/feature-page/" state={{ file : yamdata}}>
+                                                                <button class="person-btn"><img id="img" src={person.photo} alt={person.photo_alt} /></button>
                                                                 <div class="square" id="namerec"></div>
-                                                                <div id="name">{person.name} {person.lastName}</div>
+                                                                <div id="name">{person.first_name} {person.last_name}</div>
                                                                 <div class="picdet">
                                                                     <div class="square" id="details"></div>
-                                                                    <p id="pichead">{person.name + " " + person.lastName}</p>
+                                                                    <p id="pichead">{person.first_name + " " + person.last_name}</p>
                                                                     <div class="picdes">
-                                                                        <p>{person.title}</p>
+                                                                        <p>{person.position}</p>
                                                                         <br></br>
-                                                                        <p>{person.desc}</p>
+                                                                        <p>{person.description}</p>
                                                                         <p><button id="featured_medias">
-                                                                            <img src={insta} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
-                                                                            <img src={facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />
-                                                                            <img src={twitter} id="twitter_pic" className="photo-for-mainpage" alt="twitter" />
-                                                                            <img src={internet} id="internet_pic" className="photo-for-mainpage" alt="internet" />
+                                                                            <img src={person.socials.instagram} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
+                                                                            <img src={person.socials.facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />
+                                                                            <img src={person.socials.twitter} id="twitter_pic" className="photo-for-mainpage" alt="twitter" />
+                                                                            <img src={person.socials.internet} id="internet_pic" className="photo-for-mainpage" alt="internet" />
                                                                         </button></p>
                                                                     </div>
                                                                 </div>

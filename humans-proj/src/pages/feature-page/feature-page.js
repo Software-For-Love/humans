@@ -12,85 +12,8 @@ import insta from '../../../static/images/insta_icon.png';
 import facebook from '../../../static/images/facebook_icon.png';
 import twitter from '../../../static/images/twitter_icon.png';
 import internet from '../../../static/images/internet_icon.png';
-
-// Temporary file to use redirects for currently featured page
-import temp_file from "../../data/currently-featured.yaml";
 import yamdata from "../../data/all-features-page/all-features.yaml"
-/**
- * Featured data should be stored here based on the month and year that it matches to.
- * 
- * Every month should have an array containing an object that represents a featured person
- * which has an associated name, last name, title, description and image.
- * 
- * If integrating yaml files, instead just change this object so that it stores a collection of
- * dates which map to an array of yaml files
- * 
- * "Date1": [
- *      yaml_file1,
- *      yaml_file2,
- *      yaml_file3
- * ], "Date2": [...
- * 
- * Yaml files may have different names for their element mappings, you can update the featured people 
- * cards below to reflect the mapped names
- */
 
-// const featuredData =
-// {
-//     "2021 August": [
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img1
-//         },
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img2
-//         },
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img3
-//         }
-//     ],
-//     "2021 July": [
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img4
-//         },
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img1
-//         },
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img2
-//         },
-//         {
-//             name: "Name",
-//             lastName: "LastName",
-//             title: "Journalist",
-//             desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-//             img: img3
-//         }
-//     ]
-// }
 
 export default function FeaturePage(props) {
     const featuredData = props.location.state && props.location.state.file ? props.location.state.file : yamdata;
@@ -178,7 +101,7 @@ export default function FeaturePage(props) {
                             renderSize.current = size;
                             const elements = [];
                             let repeat = false;
-// TODO: replace date, dateindex with id, ActivistIdIndex
+
                             while (renderSize.current > 0) {
                                 elements.push(Object.keys(featuredData).map((id, ActivistIndex) => {
                                     const objectData = featuredData[id];
@@ -197,10 +120,6 @@ export default function FeaturePage(props) {
                                                         // Each array element is represented individually
                                                         renderSize.current--;
                                                         return (
-
-                                                            // Each featured person card should reference a yaml file, read the comments above near the featuredData
-                                                            // object as to how each yaml file should be handled
-
                                                             // This 'file' props being passed through the Link should be updated when yaml files are integrated.
                                                             // The 'file' should reference the featured person's yaml file.
                                                             <div class="pic" key={personIndex}>
@@ -215,6 +134,8 @@ export default function FeaturePage(props) {
                                                                         <p>{person.position}</p>
                                                                         <br></br>
                                                                         <p>{person.description}</p>
+                                                                        <p>{person.description2.support}</p>
+                                                                        <p>{person.description2.organization}</p>
                                                                         <p><button id="featured_medias">
                                                                             <img src={person.socials.instagram} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
                                                                             <img src={person.socials.facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />

@@ -232,14 +232,14 @@ export default class SubmissionForm extends Component {
                                 {
                                     this.state.socialMediaLinks.map((link, index) => {
                                         return (
-                                            <div id="textarea" className="linkDisplay">
-                                                <input className="linkName" value={link.getPlatform()}
+                                            <div id="textarea" name = {link.getPlatform()} className="linkDisplay">
+                                                <input className="linkName" name = {link.getPlatform()} value={link.getPlatform()}
                                                     placeholder="Add platform..."
                                                     disabled={index < this.state.socialMediaRequirements}
                                                     onChange={(e) => this.handleLinkPlatformChange(e, index)} />
 
                                                 <div className="linkInputContainer">
-                                                    <input value={link.getUrl()} className="linkInput"
+                                                    <input value={link.getUrl()} name = {link.getUrl}className="linkInput"
                                                         onChange={(e) => this.handleLinkUrlChange(e, index)} />
                                                     {
                                                         index < this.state.socialMediaRequirements ?

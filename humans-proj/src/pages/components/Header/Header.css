@@ -146,6 +146,8 @@
 #header {
     /* border: solid black 3px; */
     height: fit-content;
+    width: 90vw;
+    
     font-family: Red Hat Display;
     font-style: normal;
     color: white;

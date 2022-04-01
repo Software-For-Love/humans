@@ -18,7 +18,7 @@
 .faq{
     flex:none;
     color: white;
-    width: 50%;
+    width: 60%;
     height: auto;
     justify-items: center;
 }
@@ -37,7 +37,7 @@ h2{
     line-height: 5vh;
 }
 
-li{
+.info{
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: 50;

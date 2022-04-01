@@ -68,19 +68,16 @@ export default function AboutPage() {
             <section className="questions">
                 <div className="first-row">
                     <div className="faq">
-                        <h2>What we do?</h2>
+                        <h2>What is Humans?</h2>
                         <ul>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
+                            <p className="info">Humans is a passion project through <br></br> which we will put a spotlight on the <br></br> heroes of our community that bring <br></br> about positive change in our society.</p>
+                            
                         </ul>
                     </div>
                     <div className="faq">
-                        <h2>More About Software For Love</h2>
+                        <h2>About Software For Love</h2>
                         <ul>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
+                            <p className="info">Software For Love is a nonprofit <br></br> organization that provides software <br></br>solutions to other nonprofits and <br></br> charities.</p>
                         </ul>
                     </div>
                 </div>
@@ -88,19 +85,14 @@ export default function AboutPage() {
                     <div className="faq">
                         <h2>Why we do it?</h2>
                         <ul>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
+                        <p className="info">We are passionate about the <br></br>intersection of technology and <br></br> activism and this project is an ideal <br></br>way to execute it.</p>
                         </ul>
                     </div>
                     <div className="faq">
-                        <h2>Why we do it?</h2>
+                        <h2>What can I do?</h2>
                         <ul>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
-                            <li>We help spread the word for good</li>
-                            <li>Created to spread awareness</li>
+                            <p className="info">If you have a hero that you believe <br></br>deserves this spotlight, fill out our <br></br><a href='/nominate-page/nominate/'>nominate form.</a></p>
+
                         </ul>
                     </div>
                 </div>

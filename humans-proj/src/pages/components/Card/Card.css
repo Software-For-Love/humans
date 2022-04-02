@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display');
+
+#card-wrapper {
+    /* border: solid 2px black; */
+    width: max-content;
+    height: max-content;
+    display: inline-flex;
+    filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
+}
+
+#card {
+    /* border: solid 2px red; */
+    display: block;
+    height: max-content;
+    width: max-content;
+    position: relative;
+    opacity: 1;
+    /* backface-visibility: hidden; */
+}
+
+#card-img-div {
+    /* border: solid 2px yellow; */
+    height: fit-content;
+    width: fit-content;
+}
+
+#card-img {
+    height: min-content;
+    width: 320px;
+}
+
+/* #card-name-div-wrapper {
+    border: solid 4px green;
+} */
+
+#card-name-div {
+    /* border: solid 2px orange; */
+    width: 320px;
+    background-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#card-name {
+    color: white;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-size: larger;
+    text-align: center;
+    margin: auto;
+}
+
+#info {
+    /* border: solid 2px white; */
+    /* position: absolute; */
+    color: white;
+    display: none;
+}
+
+#middle {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+#card:hover #middle {
+    opacity: 1;
+    /* border: solid 2px red; */
+}
+
+#overlay-wrapper {
+    background-color:rgba(0, 0, 0, 0.75);
+    /* border: solid 2px purple; */
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: 500;
+    padding: 30px 10px 10px;
+}
+
+.overlay-text {
+    opacity: 100%;
+    /* border: solid 2px white; */
+    opacity: 1;
+    margin: 0 10px 0 10px;
+}
+
+#overlay-name {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+#overlay-job { font-size: 15px; }
+
+#overlay-desc {
+    font-size: 18px;
+    line-height: 29px;
+    margin-top: 34px;
+    padding-right: 10px;
+}
+
+#card-links-wrapper {
+    /* border: solid 2px brown; */
+    margin-bottom: 0%;
+    position: absolute;
+    bottom: 30px;
+    left: 0%;
+    width: 100%;
+}
+
+#card-links {
+    /* border: solid 2px khaki; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: min-content;
+    margin: auto;
+}
+
+#card-icon-list {
+    margin: auto;
+}

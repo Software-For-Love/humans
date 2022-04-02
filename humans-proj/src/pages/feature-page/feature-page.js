@@ -3,104 +3,28 @@ import { Link } from 'gatsby';
 import Header from "../components/Header/Header";
 import "./feature-page.css";
 import Footer from "../components/Footer/Footer";
-import img1 from "../../../static/images/img1.png";
-import img2 from "../../../static/images/img2.png";
-import img3 from "../../../static/images/img3.png";
-import img4 from "../../../static/images/img 4.png";
 import rightArrows from '../../../static/images/right-arrows.png';
 import insta from '../../../static/images/insta_icon.png';
 import facebook from '../../../static/images/facebook_icon.png';
 import twitter from '../../../static/images/twitter_icon.png';
 import internet from '../../../static/images/internet_icon.png';
 
-// Temporary file to use redirects for currently featured page
-import temp_file from "../../data/currently-featured.yaml";
-
-/**
- * Featured data should be stored here based on the month and year that it matches to.
- * 
- * Every month should have an array containing an object that represents a featured person
- * which has an associated name, last name, title, description and image.
- * 
- * When integrating the yaml file, you can replace the object below with a yaml file like this
- * 
- * "yaml_date1": [
- *      yaml_section1,
- *      yaml_section2,
- *      yaml_section3
- * ], "yaml_date2": [...
- * 
- * The yaml file should ideally follow a similar structure where each person is mapped to a specific date
- * 
- * Yaml files may have different names for their element mappings, you can update the featured people 
- * cards below to reflect the mapped names
- */
-
-const featuredData =
-{
-    "2021 August": [
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img1
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img2
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img3
-        }
-    ],
-    "2021 July": [
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img4
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img1
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img2
-        },
-        {
-            name: "Name",
-            lastName: "LastName",
-            title: "Journalist",
-            desc: "We look forward to the time when the power to love will replace the love of power. Then will our world know the blessing of peace.",
-            img: img3
-        }
-    ]
-}
+import yaml_file from "../../data/all-features-page/all-features.yaml";
 
 export default function FeaturePage() {
 
     // Keeps track of the featured people visible on screen
     const [startDateIndex, setStartDateIndex] = useState(0);
     const [startPeopleIndex, setStartPeopleIndex] = useState(0);
+    const [activistData, setActivistData] = useState({});
+
+
+    // We can use a state variable to check whether something has been typed in the filter input
+    const [filterText, setFilterText] = useState("");
+    const [filteredContent, setFilteredContent] = useState([]);
+
 
     // These variables handle navigation between people
-    const [lengths, setLengths] = useState([]);
     const [size, setSize] = useState(4);
     const renderSize = useRef(0);
 
@@ -113,18 +37,26 @@ export default function FeaturePage() {
             }
         }
 
-        let windowSize = window.innerWidth < 1025 ? 2 : 4;
-        setSize(windowSize);
+        const humans = yaml_file.Humans;
+        const newActivistData = {};
 
-        const currentLengths = [];
+        for (const human of humans) {
 
-        for (const featuredPeople in featuredData) {
-            const len = featuredData[featuredPeople].length;
+            if (newActivistData.hasOwnProperty(human.date)) {
 
-            currentLengths.push(len);
+                newActivistData[human.date].push(human);
+
+            } else {
+
+                newActivistData[human.date] = [human];
+
+            }
         }
 
-        setLengths(currentLengths);
+        setActivistData(newActivistData);
+
+        let windowSize = window.innerWidth < 1025 ? 2 : 4;
+        setSize(windowSize);
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -132,13 +64,21 @@ export default function FeaturePage() {
 
     function handleCarousel() {
 
-        // Increments the beginning index
-        const len = lengths[startDateIndex];
+        const currentActivistData = filterText === "" ? activistData : filteredContent;
+
+        const dates = Object.keys(currentActivistData).sort((date1, date2) => {
+            return new Date(date2) - new Date(date1);
+        })
+
+        // Increments the date and people indices to mimic a circular queue of content
+        const date = dates[startDateIndex];
+        const dateContent = currentActivistData[date];
+
         const newStartPeopleIndex = startPeopleIndex + 1;
 
-        if (newStartPeopleIndex >= len) {
+        if (newStartPeopleIndex >= dateContent.length) {
 
-            setStartDateIndex((startDateIndex + 1) % lengths.length);
+            setStartDateIndex((startDateIndex + 1) % dates.length);
             setStartPeopleIndex(0);
 
         } else {
@@ -146,6 +86,59 @@ export default function FeaturePage() {
             setStartPeopleIndex(newStartPeopleIndex);
 
         }
+
+    }
+
+    function handleFilter(e) {
+        // State changing function which will be used in the filtration process
+        const newText = e.target.value;
+
+        const newFilteredContent = {};
+        let previousFilteredContent;
+
+        // If the filter text increases in size, the filtered content list is contracted
+        // Otherwise, it expands the filtered content list
+
+        if (newText.length > filterText && filterText !== "") {
+
+            previousFilteredContent = filteredContent;
+        } else {
+            
+            previousFilteredContent = activistData;
+        }
+
+        for (const date in previousFilteredContent) {
+            for (const human of previousFilteredContent[date]) {
+
+                // Inputs activist data for every date available in the featured content
+                if (matchesFilter(human.description, newText)) {
+
+                    if (newFilteredContent.hasOwnProperty(human.date)) {
+
+                        newFilteredContent[human.date].push(human);
+
+                    } else {
+
+                        newFilteredContent[human.date] = [human];
+
+                    }
+
+                }
+            }
+        }
+
+        setStartDateIndex(0);
+        setStartPeopleIndex(0);
+        setFilterText(newText);
+        setFilteredContent(newFilteredContent);
+    }
+
+    // Can change the parameters to match the appropriate filter
+    function matchesFilter(desc, text) {
+        // Helper function when using the filtered content list
+        // Should be edited with the appropriate filtration method
+
+        return desc.includes(text);
     }
 
     return (
@@ -171,9 +164,9 @@ export default function FeaturePage() {
                             <p>December</p>
                         </div>
                     </div>
-                    <input id="search_bar" type="text" placeholder="Search name, stories..."></input>
+                    <input id="search_bar" type="text" placeholder="Search name, stories..." onChange={handleFilter}></input>
                 </div>
-
+                
                 <div class="featured-contents">
                     {
                         (() => {
@@ -181,60 +174,85 @@ export default function FeaturePage() {
                             const elements = [];
                             let repeat = false;
 
+                            if ((filterText.length > 0 && Object.keys(filteredContent).length == 0) || Object.keys(activistData).length == 0) return <></>;
+
+                            // Either get the yaml file data or the filtered content data depending on if a filter is present
+                            const currentActivistData = filterText.length > 0 ? filteredContent : activistData;
+
+                            // Sort the dates based on older dates being towards the end of the list
+                            const dates = Object.keys(currentActivistData).sort((date1, date2) => {
+                                return new Date(date2) - new Date(date1);
+                            })
+
                             while (renderSize.current > 0) {
-                                elements.push(Object.keys(featuredData).map((date, dateIndex) => {
-                                    const objectData = featuredData[date];
+
+                                elements.push(dates.map((date, dateIndex) => {
+                                    const objectData = currentActivistData[date];
                                     // Map all elements in the array to the specified date
+
+                                    // Ensures that the array starts from the specified start indices
                                     if (renderSize.current <= 0 || (dateIndex < startDateIndex && !repeat)) return <></>;
+
+                                    // Ensures that the array does not go past the specified start indices on repeat
+                                    // Additionally, ensures that the date does not display with no featured people
+                                    if (repeat && (dateIndex > startDateIndex || dateIndex === startDateIndex && startPeopleIndex == 0)) {
+                                        renderSize.current = 0;
+                                        return <></>;
+                                    }
+
                                     return (
                                         <div class="featured-date">
 
                                             <div id="date-container">
                                                 <h2 id="m2">{date}</h2>
                                             </div>
-                                            
+
                                             <div class="featured-people">
                                                 {
                                                     objectData.map((person, personIndex) => {
-                                                        if (renderSize.current <= 0 || 
+                                                        // Ensures that the array starts from the specified start indices
+                                                        if (renderSize.current <= 0 ||
                                                             (dateIndex === startDateIndex && !repeat && personIndex < startPeopleIndex)) return <></>;
-                                                        // Each array element is represented individually
+
+                                                        // Ensures that the array does not go past the specified start indices on repeat
+                                                        if (repeat && dateIndex === startDateIndex && personIndex >= startPeopleIndex) {
+                                                            renderSize.current = 0;
+                                                            return <></>;
+                                                        }
+
                                                         renderSize.current--;
                                                         return (
 
-                                                            // Each featured person card should reference a yaml file, read the comments above near the featuredData
-                                                            // object as to how each yaml file should be handled
-
-                                                            // This 'file' props being passed through the Link should be updated when yaml files are integrated.
-                                                            // The 'file' should reference the featured person's yaml file.
+                                                            // file for the Link needs to be updated later, send in a javascript object that can be read
+                                                            // on currently featured page
 
                                                             <div class="pic" key={personIndex}>
 
                                                                 {
-                                                                    // The file that is being sent in the currently featured page should represent a similar structure
-                                                                    // to one of the person sections in the yaml file, under a date
+                                                                    // Inside here is the card for each individual person
+                                                                    // It can be updated with any new design and only affects the card
                                                                 }
+                                                                
+                                                                <Link to="/feature-page/currently-featured/" state={{ file: yaml_file }}>
 
-                                                                <Link to="/feature-page/currently-featured/" state={{ file : temp_file }}>
-
-                                                                <button class="person-btn"><img id="img" src={person.img} alt="person" /></button>
-                                                                <div class="square" id="namerec"></div>
-                                                                <div id="name">{person.name} {person.lastName}</div>
-                                                                <div class="picdet">
-                                                                    <div class="square" id="details"></div>
-                                                                    <p id="pichead">{person.name + " " + person.lastName}</p>
-                                                                    <div class="picdes">
-                                                                        <p>{person.title}</p>
-                                                                        <br></br>
-                                                                        <p>{person.desc}</p>
-                                                                        <p><button id="featured_medias">
-                                                                            <img src={insta} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
-                                                                            <img src={facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />
-                                                                            <img src={twitter} id="twitter_pic" className="photo-for-mainpage" alt="twitter" />
-                                                                            <img src={internet} id="internet_pic" className="photo-for-mainpage" alt="internet" />
-                                                                        </button></p>
+                                                                    <button class="person-btn"><img id="img" src={person.photo} alt="person" /></button>
+                                                                    <div class="square" id="namerec"></div>
+                                                                    <div id="name">{person.first_name} {person.last_name}</div>
+                                                                    <div class="picdet">
+                                                                        <div class="square" id="details"></div>
+                                                                        <p id="pichead">{person.first_name + " " + person.last_name}</p>
+                                                                        <div class="picdes">
+                                                                            <p>{person.position}</p>
+                                                                            <br></br>
+                                                                            <p>{person.description}</p>
+                                                                            <p><button id="featured_medias">
+                                                                                <img src={insta} id="insta_pic" className="photo-for-mainpage" alt="insta" />&nbsp;
+                                                                                <img src={facebook} id="facebook_pic" className="photo-for-mainpage" alt="facebook" />
+                                                                                <img src={twitter} id="twitter_pic" className="photo-for-mainpage" alt="twitter" />
+                                                                                <img src={internet} id="internet_pic" className="photo-for-mainpage" alt="internet" />
+                                                                            </button></p>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
                                                                 </Link>
                                                             </div>
                                                         )
@@ -259,7 +277,7 @@ export default function FeaturePage() {
                     <div class="nominatebartxt">
                         <p> Didn't see your favourite human rights activist or social groups?</p>
                         <p>Write us a recommendation!</p>
-                        <button type="button" id="nominate_button" onClick={() => {window.location.replace('/nominate-page/nominate/')}}>Nominate</button>
+                        <button type="button" id="nominate_button" onClick={() => { window.location.replace('/nominate-page/nominate/') }}>Nominate</button>
                     </div>
                 </div>
             </div>

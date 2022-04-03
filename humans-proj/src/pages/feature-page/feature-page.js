@@ -174,7 +174,7 @@ export default function FeaturePage() {
                             const elements = [];
                             let repeat = false;
 
-                            if ((filterText.length > 0 && Object.keys(filteredContent).length == 0) || Object.keys(activistData).length == 0) return <></>;
+                            if ((filterText.length > 0 && Object.keys(filteredContent).length === 0) || Object.keys(activistData).length === 0) return <></>;
 
                             // Either get the yaml file data or the filtered content data depending on if a filter is present
                             const currentActivistData = filterText.length > 0 ? filteredContent : activistData;
@@ -195,7 +195,7 @@ export default function FeaturePage() {
 
                                     // Ensures that the array does not go past the specified start indices on repeat
                                     // Additionally, ensures that the date does not display with no featured people
-                                    if (repeat && (dateIndex > startDateIndex || dateIndex === startDateIndex && startPeopleIndex == 0)) {
+                                    if (repeat && (dateIndex > startDateIndex || dateIndex === startDateIndex && startPeopleIndex === 0)) {
                                         renderSize.current = 0;
                                         return <></>;
                                     }

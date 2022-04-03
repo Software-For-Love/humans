@@ -70,14 +70,14 @@ export default function AboutPage() {
                     <div className="faq">
                         <h2>What is Humans?</h2>
                         <ul>
-                            <p className="info">Humans is a passion project through <br></br> which we will put a spotlight on the <br></br> heroes of our community that bring <br></br> about positive change in our society.</p>
+                            <p className="info">Humans is a project that was established through Software For Love (SFL), a not-for-profit organization that provides software solutions. Humans is an internal project that would spotlight activists within our respective communities. Each activist on this website is someone who goes out of their way to bring about positive change in our society. Humans gives activist a platform while also demonstrating our design and software development skills!</p>
                             
                         </ul>
                     </div>
                     <div className="faq">
                         <h2>About Software For Love</h2>
                         <ul>
-                            <p className="info">Software For Love is a nonprofit <br></br> organization that provides software <br></br>solutions to other nonprofits and <br></br> charities.</p>
+                            <p className="info">Software For Love is a not for profit organization that provides software solutions to other nonprofits and charities in order to increase the social impact of these organizations.</p>
                         </ul>
                     </div>
                 </div>
@@ -85,13 +85,13 @@ export default function AboutPage() {
                     <div className="faq">
                         <h2>Why we do it?</h2>
                         <ul>
-                        <p className="info">We are passionate about the <br></br>intersection of technology and <br></br> activism and this project is an ideal <br></br>way to execute it.</p>
+                        <p className="info">We are passionate about the intersection of technology and activism and this project is an ideal way to execute it. With the aim “spreading love through software” we aim to use our expert knowledge in UI/UX design, software development, and more, to help smaller organizations increase their digital image in an increasingly digital world.</p>
                         </ul>
                     </div>
                     <div className="faq">
                         <h2>What can I do?</h2>
                         <ul>
-                            <p className="info">If you have a hero that you believe <br></br>deserves this spotlight, fill out our <br></br><a href='/nominate-page/nominate/'>nominate form.</a></p>
+                            <p className="info">If you have an activist that you believe deserves this spotlight, fill out our <a href='/nominate-page/nominate/'>nomination form!</a></p>
 
                         </ul>
                     </div>

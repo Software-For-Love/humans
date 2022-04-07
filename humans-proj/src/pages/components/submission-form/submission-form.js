@@ -138,7 +138,7 @@ export default class SubmissionForm extends Component {
             .catch((error) => alert(error));
 
             //user input has passed all tests
-            alert("Your nominee information has been successfully submitted.");
+            alert("Your nomination has been successfully submitted.");
     }
 
     handleLinkUrlChange(e, index) {

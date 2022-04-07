@@ -95,6 +95,9 @@ export default class ContactForm extends Component {
         })
          
           .catch((error) => alert(error));
+
+          //User input has passed all tests
+          alert("Your input has been succesfully transmitted to the SFL team.")
     }
 
     render() {

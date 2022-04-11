@@ -44,7 +44,6 @@
 
     .personTag {
         width: 70vw;
-        font-size: 14px;
     }
 
     #description-text { margin-top: 0vh; }
@@ -126,9 +125,15 @@
         padding: 1.2vh 1vw 0vh 2vw;
     }
     
-    textarea, #textarea, .personTag, .addLink {
+    textarea, #textarea, .addLink {
         width: 45vw;
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    .personTag{
+        width: 45vw;
+        font-size: 25px;
+        text-decoration: underline;
     }
 
     .addLinkButton {
@@ -168,7 +173,7 @@
         padding: 1vh 1vw 0vh 2vw;
     }
 
-    textarea, #textarea, .personTag { font-size: 26px; }
+    textarea, #textarea { font-size: 26px; }
 
     #description-text-input { font-size: 26px; }
 
@@ -228,11 +233,11 @@ textarea, #textarea  {
     margin-top: 5vh;
     margin-bottom: 1vh;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 50px;
     text-align: center;
 }
 
-.nomineeLinkTag, .personTag, .addLinkButton {
+.nomineeLinkTag, .addLinkButton {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
@@ -389,3 +394,4 @@ input[type="checkbox"] {
     font-size: 20px;
     color: black;
 }
+

@@ -76,11 +76,9 @@ export default class SubmissionForm extends Component {
                 descriptionError: (this.state.description.length < 1 ? '*Please enter description!' : '')
 
             }
-            
         });
+
         // console.log(this.state.errors)
-        
-        
     }
     handleChange(event) {
         const { name, value, id, type } = event.target
@@ -136,9 +134,6 @@ export default class SubmissionForm extends Component {
         })
 
             .catch((error) => alert(error));
-
-            //user input has passed all tests
-            alert("Your nomination has been successfully submitted.");
     }
 
     handleLinkUrlChange(e, index) {
@@ -297,7 +292,9 @@ export default class SubmissionForm extends Component {
                     </div>
                     <h5 className="asteriskWarning">Fields marked with an asterisk (*) are required</h5>
 
-                    <button id="submit-button" input type="submit" onClick={this.onClickSubmit}>SUBMIT</button>
+                    <button class="submit_button" id="submit-button" input type="submit" onClick={this.onClickSubmit}>SUBMIT</button>
+
+
                 </form>
             </div>
         )

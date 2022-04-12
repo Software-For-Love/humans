@@ -44,7 +44,7 @@
 
     .personTag {
         width: 70vw;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     #description-text { margin-top: 0vh; }
@@ -126,9 +126,13 @@
         padding: 1.2vh 1vw 0vh 2vw;
     }
     
-    textarea, #textarea, .personTag, .addLink {
+    textarea, #textarea, .addLink {
         width: 45vw;
         font-size: 18px;
+    }
+    .personTag{
+        width: 45vw;
+        font-size: 20px;
     }
 
     .addLinkButton {
@@ -168,7 +172,9 @@
         padding: 1vh 1vw 0vh 2vw;
     }
 
-    textarea, #textarea, .personTag { font-size: 26px; }
+    textarea, #textarea { font-size: 26px; }
+
+    .personTag { font-size: 28px; }
 
     #description-text-input { font-size: 26px; }
 
@@ -230,6 +236,7 @@ textarea, #textarea  {
     box-sizing: border-box;
     border-radius: 10px;
     text-align: center;
+    text-decoration: underline;
 }
 
 .nomineeLinkTag, .personTag, .addLinkButton {
@@ -238,8 +245,11 @@ textarea, #textarea  {
     font-weight: bold;
     color: #FFFFFF;
     resize: none;
-    background: rgba(255, 255, 255, 0.17);
     background-image: none;
+}
+
+.nomineeLinkTag, .addLinkButton {
+    background: rgba(255, 255, 255, 0.17);
 }
 
 .linkDisplay {

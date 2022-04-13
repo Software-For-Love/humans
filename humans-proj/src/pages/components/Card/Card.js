@@ -56,8 +56,6 @@ export default class Card extends React.Component {
                                     <p className="overlay-text" id="overlay-desc">{this.props.person.description}</p>
                                 </div>
 
-
-
                                 <div id="card-links-wrapper">
                                     <div id="card-links">
                                         {

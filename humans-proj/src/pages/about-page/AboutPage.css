@@ -1,3 +1,15 @@
+@media only screen {
+    .first-row, .second-row {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .first-row, .second-row {
+        width: 50%;
+    }
+}
+
 #about-page {
     background-image: url("../../../static/images/about-us-background.png");
     background-size: cover;
@@ -14,17 +26,26 @@
 .questions{
     display:flex;
     flex-direction: column;
+    margin-right: 10%;
 }
 .faq{
     flex:none;
     color: white;
     width: 60%;
     height: auto;
+    margin-bottom: 4%;
+    margin-right: 4%;
+    padding: 1%;
     justify-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.faqTitle{
+    text-align: center;
 }
 .first-row, .second-row{
     margin: auto;
-    width: 50%;
     display: flex;
     flex-direction: row;
 }

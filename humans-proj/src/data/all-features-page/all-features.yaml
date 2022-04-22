@@ -22,6 +22,7 @@ Humans:
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
 
+
   - id: 2021August_NameLastName_02
     date: 2021 August
     first_name: Name
@@ -44,6 +45,7 @@ Humans:
       facebook: "https://www.facebook.com/"
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
+
 
   - id: 2021August_NameLastName_03
     date: 2021 August
@@ -68,6 +70,7 @@ Humans:
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
 
+
   - id: 2021July_NameLastName
     date: 2021 July
     first_name: Name
@@ -90,6 +93,7 @@ Humans:
       facebook: "https://www.facebook.com/"
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
+
 
   - id: 2021July_NameLastName_02
     date: 2021 July
@@ -114,6 +118,7 @@ Humans:
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
 
+
   - id: 2021July_NameLastName_03
     date: 2021 July
     first_name: Name
@@ -136,3 +141,5 @@ Humans:
       facebook: "https://www.facebook.com/"
       twitter: "https://twitter.com/home"
       internet: "https://www.google.ca/"
+
+

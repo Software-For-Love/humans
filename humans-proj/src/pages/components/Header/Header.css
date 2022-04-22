@@ -146,6 +146,8 @@
 #header {
     /* border: solid black 3px; */
     height: fit-content;
+    width: 90vw;
+    
     font-family: Red Hat Display;
     font-style: normal;
     color: white;
@@ -221,4 +223,13 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
+}
+
+
+#nav-menu {
+   margin-left: 25%;
+} 
+
+#link-wrapper {
+    padding:18px;
 }

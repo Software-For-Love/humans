@@ -14,20 +14,44 @@
         font-size: 14px;
         line-height: 1.5;
     }
+
+    textarea {
+        padding: 1.5vh 1vw 0vh 2vw;
+    }
     
-    textarea, #email {
+    #textarea, .addLink {
+        padding: 0.5vh 1vw 0vh 2vw;
+    }
+
+    textarea, #textarea, .addLink {
         width: 70vw;
         height: 5vh;
         font-size: 14px;
-        padding: 0.5vh 1vw 0vh 2vw;
         border-radius: 33px;
+    }
+
+    .addLinkButton {
+        width: 10vw;
+    }
+
+    .linkName {
+        width: 58%;
+    }
+
+    .linkInputContainer {
+        margin-right: 2%;
+    }
+
+    .personTag {
+        width: 70vw;
+        font-size: 16px;
     }
 
     #description-text { margin-top: 0vh; }
 
     #description-text-input {
         font-size: 16.5px;
-        height: 12vh;
+        height: 16vh;
     }
 
     #consent {
@@ -65,6 +89,14 @@
         font-size: 18px;
     }
 
+    .linkName {
+        width: 100%;
+    }
+
+    .addLinkButton {
+        width: 7.2vw;
+    }
+
     #can-contact-checkbox { margin: auto; }
 
     #form-image-container { margin-bottom: 2vh; }
@@ -89,11 +121,31 @@
     #intro { font-size: 24px; }
 
     label { font-size: 20px; }
+
+    textarea {
+        padding: 1.2vh 1vw 0vh 2vw;
+    }
     
-    textarea, #email {
+    textarea, #textarea, .addLink {
         width: 45vw;
         font-size: 18px;
     }
+    .personTag{
+        width: 45vw;
+        font-size: 20px;
+    }
+
+    .addLinkButton {
+        width: 5vw;
+    }
+
+    /* .linkName {
+        width: 15vw;
+    }
+
+    .linkInput, .linkInputContainer {
+        width: 30vw;
+    } */
 
     #form-image-container { display: block; } 
 
@@ -116,7 +168,13 @@
 
     label { font-size: 28px; }
     
-    textarea, #email { font-size: 26px; }
+    textarea {
+        padding: 1vh 1vw 0vh 2vw;
+    }
+
+    textarea, #textarea { font-size: 26px; }
+
+    .personTag { font-size: 28px; }
 
     #description-text-input { font-size: 26px; }
 
@@ -148,14 +206,19 @@
     color: #FFFFFF;
 }
 
-label {
+label, .personTag, .linkName, .linkInput, .asteriskWarning {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
     color: #FFFFFF;
 }
 
-textarea, #email {
+.asteriskWarning {
+    margin-top: 1%;
+    margin-bottom: 0%;
+}
+
+textarea, #textarea  {
     font-family: Red Hat Display;
     font-style: normal;
     font-weight: bold;
@@ -165,6 +228,96 @@ textarea, #email {
     background-image: none;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
+}
+
+.personTag {
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.nomineeLinkTag, .personTag, .addLinkButton {
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    resize: none;
+    background-image: none;
+}
+
+.nomineeLinkTag, .addLinkButton {
+    background: rgba(255, 255, 255, 0.17);
+}
+
+.linkDisplay {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 !important;
+    overflow: hidden;
+    margin-bottom: 1.2%;
+}
+
+.linkName, .linkInput {
+    height: 100%;
+    border-width: 0;
+    padding-left: 2%;
+    font-size: medium;
+}
+
+.linkName {
+    flex-grow: 1;
+}
+
+.linkInput {
+    width: 100%;
+}
+
+.linkInputContainer {    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 2;
+}
+
+.linkName {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.linkInput {
+    background: none;
+}
+
+.linkName:focus, .linkInput:focus, .linkClose:focus{
+    outline: none !important;
+}
+
+.linkName::placeholder {
+    font-size: small;
+    font-style: italic;
+}
+
+.linkClose {
+    background: transparent;
+    border: none;
+    padding-right: 1%;
+    color: white;
+}
+
+.addLink {
+    display: flex;
+    justify-content: center;
+}
+
+.addLinkButton {
+    border-radius: 10px;
 }
 
 #description-text {

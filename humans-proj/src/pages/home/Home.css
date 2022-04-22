@@ -130,6 +130,8 @@
 #main-content {
     /* border: solid 3px red; */
     height: fit-content;
+    width: 87vw;
+    align-self: center;
     margin: auto;
     display: block;
 }

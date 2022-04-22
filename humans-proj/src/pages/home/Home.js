@@ -5,14 +5,14 @@ import HomeFrame from "../components/HomeFrame/HomeFrame";
 import arrows from '../../../static/images/mainpage2line.png';
 import featuredBackground from '../../../static/images/home-background.png'
 import aboutBackground from '../../../static/images/home2-background.png'
-import teamBackground from '../../../static/images/home3-background.png'
+import nominateBackground from '../../../static/images/home3-background.png'
 import oldEntriesBackground from '../../../static/images/home4-background.png'
 import "./Home.css";
 
 const pageInfo = [
     ["FEATURED", '#FF98B1', featuredBackground, '/feature-page/currently-featured/'],
     ["ABOUT", '#FFA16C', aboutBackground, '/about-page/AboutPage/'],
-    ["TEAM", '#CBEFFF', teamBackground, '/nominate-page/nominate/'],
+    ["NOMINATE", '#CBEFFF', nominateBackground, '/nominate-page/nominate/'],
     ["OLD ENTRIES", '#F6B6B6', oldEntriesBackground, '/feature-page/feature-page/']
 ]
 
@@ -41,7 +41,7 @@ function Pagination(props) {
                     <span class="icon" style={{ backgroundColor: (props.index === 1) ? 'white' : props.color }}></span>
                 </div>
                 <div class="bullet">
-                    <div class="text" style={{ visibility: (props.index === 2) ? 'visible' : 'hidden' }}>Team</div>
+                    <div class="text" style={{ visibility: (props.index === 2) ? 'visible' : 'hidden' }}>Nominate</div>
                     <span class="icon" style={{ backgroundColor: (props.index === 2) ? 'white' : props.color }}></span>
                 </div>
                 <div class="bullet">

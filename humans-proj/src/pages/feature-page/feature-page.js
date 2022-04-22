@@ -10,11 +10,8 @@ import yaml_file from "../../data/all-features-page/all-featured.yaml"
 
 export default function FeaturePage() {
 
-
-export default function FeaturePage(props) {
-    const featuredData = props.location.state && props.location.state.file ? props.location.state.file : yamdata;
     // Keeps track of the featured people visible on screen
-    const [startActivistIndex, setStartActivistIndex] = useState(0);
+    const [startDateIndex, setStartDateIndex] = useState(0);
     const [startPeopleIndex, setStartPeopleIndex] = useState(0);
     const [activistData, setActivistData] = useState({});
 
@@ -38,7 +35,6 @@ export default function FeaturePage(props) {
         const humans = yaml_file.Humans;
         const newActivistData = {};
 
-
         for (const human of humans) {
             if (newActivistData.hasOwnProperty(human.date)) {
                 newActivistData[human.date].push(human);
@@ -59,19 +55,15 @@ export default function FeaturePage(props) {
     function handleCarousel() {
         const currentActivistData = filterText === "" ? activistData : filteredContent;
 
-
         const dates = Object.keys(currentActivistData).sort((date1, date2) => {
             return new Date(date2) - new Date(date1);
         })
-
 
         // Increments the date and people indices to mimic a circular queue of content
         const date = dates[startDateIndex];
         const dateContent = currentActivistData[date];
 
-
         const newStartPeopleIndex = startPeopleIndex + 1;
-
 
         if (newStartPeopleIndex >= dateContent.length) {
             setStartDateIndex((startDateIndex + 1) % dates.length);
@@ -123,7 +115,7 @@ export default function FeaturePage(props) {
             position.toLowerCase().includes(text.toLowerCase()) ||
             photoAlt.toLowerCase().includes(text.toLowerCase());
     }
-// sort humans by month 
+
     return (
         <div id="feature-page">
             <Header />
@@ -140,7 +132,6 @@ export default function FeaturePage(props) {
                     </div> */}
                     <input id="search_bar" type="text" placeholder="Search name, stories..." onChange={handleFilter}></input>
                 </div>
-
 
                 <div id="featured-list-and-arrow">
                     <div id="featured-contents-wrapper">
@@ -175,7 +166,6 @@ export default function FeaturePage(props) {
                                                 if (repeat && (dateIndex > startDateIndex || dateIndex === startDateIndex && startPeopleIndex === 0)) {
                                                     renderSize.current = 0;
                                                     return <></>;
-
                                                 }
 
                                                 return (

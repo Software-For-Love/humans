@@ -49,16 +49,14 @@ export default function CurrFeaturePage(props) {
                             </a>
                         </button>
                     </p>
-                    <p id="born">{featured_data.facts.birth}</p>
-                    <p id="worth">{featured_data.facts.worth}</p>
-                    <p id="partner">{featured_data.facts.partner}</p>
                     <p id="LG">{featured_data.position}</p>
                 </div>
             </div>
 
             <div id="full-description">
                 <p id="para1" className="para">{featured_data.description} </p>
-                <p id="para2" className="para">{featured_data.description2}</p>
+                <p id="para2" className="para">{featured_data.description2.support}</p>
+                <p id="para2" className="para">{featured_data.description2.organization}</p>
             </div>
             <Footer />
         </div>

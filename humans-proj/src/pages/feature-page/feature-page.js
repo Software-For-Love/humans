@@ -6,7 +6,7 @@ import rightArrows from '../../../static/images/right-arrows.png';
 import Card from "../components/Card/Card"
 
 // Temporary file to use redirects for currently featured page
-import yaml_file from "../../data/all-featured-page/all-featured.yaml"
+import yaml_file from "../../data/all-featured.yaml"
 
 export default function FeaturePage() {
 

@@ -176,12 +176,14 @@
 }
 
 .dropdown:hover .dropdown_content {
+    font-family: Red Hat Display;
     display: block;
     background-color: black;
 }
 
 #months {
     color:white;
+    font-family: Red Hat Display;
     font-size: 20px;
     text-align: center;
     height: 90%;

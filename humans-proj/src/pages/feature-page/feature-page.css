@@ -1,3 +1,7 @@
+:root {
+    --fade-in-time: 0.5s; 
+}
+
 /* Foundation */
 
 /* Small screens */
@@ -131,15 +135,12 @@
     width: 100%;
     height: auto;
     z-index: -1;
+    overflow-x: none;
 }
 
 .feature-container {
     height: 100%;
     width: 100%;
-}
-
-.button{
-    cursor: pointer;
 }
 
 .feature-search {
@@ -149,7 +150,7 @@
     height:50px;
 }
 
-#afbar{
+#afbar {
     width:100%;
     height:50px;
     background-color:white;
@@ -157,12 +158,12 @@
     position: absolute;
 }
 
-.dropdown{
+.dropdown {
     display: inline-block;
     z-index: 2;
 }
 
-.dropdown_content{
+.dropdown_content {
     display:none;
     position:absolute;
     width:100px;
@@ -174,18 +175,19 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.dropdown:hover .dropdown_content{
-    display:block;
+.dropdown:hover .dropdown_content {
+    display: block;
     background-color: black;
 }
 
-#months{
+#months {
     color:white;
     font-size: 20px;
     text-align: center;
     height: 90%;
     width: 85px;
 }
+
 #search_bar {
     background-color: transparent;
     border-color:transparent;
@@ -199,58 +201,9 @@
     z-index: 2;
 }
 
-#date-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    white-space: nowrap;
-}
-
-::placeholder{
+::placeholder {
     color:white;
     font-size:20px;
-}
-
-.featured-people, .featured-contents, .featured-date {
-    display: grid;
-}
-
-.featured-people {
-    justify-content: space-between;
-}
-
-.featured-people > div, .featured-contents > div {
-    grid-row: 1;
-}
-
-#mag{
-    margin-top:90px;
-    margin-left:-1070px;
-    position:absolute;
-}
-
-#m1{
-    color:#F6B6B6;
-    font-family: Red Hat Display;
-    font-size:40px;
-    font-weight:700;
-    position:absolute;
-    margin-left:5%;
-}
-
-#m2{
-    color:#F6B6B6;
-    font-family: Red Hat Display;
-    font-weight:700;
-}
-
-.pic{
-    -webkit-animation: fadein 0.5s;
-    -moz-animation: fadein 0.5s;
-    -ms-animation: fadein 0.5s;
-    -o-animation: fadein 0.5s;
-    animation: fadein 0.5s;
 }
 
 @keyframes fadein {
@@ -276,134 +229,7 @@
     to   { opacity: 1; }
 }
 
-.person-btn {
-    padding: 0px;
-}
-
-#img{
-    height:400px;
-    position: absolute;
-}
-
-.picdet {
-    height:450px;
-}
-
-#details{
-    height:400px;
-    background-color:black;
-    opacity:0.7;
-    margin-top:-5px;
-    position:absolute;
-    display:none;
-    margin-right: 0px;
-}
-
-.picdes{
-    position:absolute;
-    color:white;
-    width:200px;
-    font-family: Red Hat Display;
-    margin-top:40px;
-    display:none;
-}
-
-#pichead{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    width:200px;
-    display:none;
-}
-
-#insta_pic{
-    height:20px;
-    width:20px;
-    cursor: pointer;
-}
-
-#facebook_pic{
-    height:21px;
-    width:10px;
-    margin-left:20px;
-    cursor: pointer;
-}
-
-#twitter_pic{
-    height:20px;
-    width:20px;
-    margin-left:20px;
-    cursor: pointer;
-}
-#internet_pic{
-    height:20px;
-    width:20px;
-    margin-left:20px;
-    cursor: pointer;
-}
-
-#featured_medias{
-    background-color:white;
-    position:absolute;
-    border-radius: 40px;
-    width:200px;
-    height:23px;
-    margin-top:30px;
-}
-
-.pic:hover .picdes{
-    display:block;
-}
-
-.pic:hover #pichead{
-    display:block;
-}
-
-.pic:hover #details{
-    display:block;
-}
-
-.pic:hover #name{
-    display:none;
-}
-
-#namerec{
-    height:50px;
-    background-color:black;
-    margin-top:390px;
-    position:absolute;
-}
-
-#name{
-    font-weight: 500;
-    font-size:25px;
-    position:absolute;
-    color:white;
-    font-family: Red Hat Display;
-    line-height: 33.07px;
-    width:200px;
-    margin-top:400px;
-}
-
-.arrow-container {
-    justify-self: end;
-    align-self: center;
-}
-
-#arrow-small {
-    cursor: pointer;
-}
-
-#arrow{
-    font-size:30px;
-    margin-top:20%;
-    cursor: pointer;
-}
-
-#nominatebar{
+#nominatebar {
     width:100%;
     height:250px;
     background-color:black;
@@ -429,4 +255,74 @@
     height:30px;
     position:absolute;
     margin-left:-30px;
+}
+
+#featured-contents-wrapper {
+    /* border: solid 2px black; */
+    margin: auto;
+    display: inline-flex;
+    min-width: 100%;
+    max-width: 100%;
+    width: min-content;
+}
+
+#featured-list-and-arrow {
+    /* border: solid 2px red; */
+    width: min-content;
+    margin: auto;
+}
+
+#featured-list-wrapper {
+    /* border: solid 2px aqua; */
+    display: inline-flex; 
+    min-width: max-content;
+    max-width: min-content;
+}
+
+#featured-contents {
+    /* border: solid 2px red; */
+    display: inline-flex;
+    width: min-content;
+    /* width: 100%; */
+}
+
+#featured-month-list {
+    /* border: 2px solid green; */
+    overflow: hidden;
+    display: inline-block;
+    width: max-content;
+}
+
+#featured-month-people {
+    display: inline-flex;
+}
+
+#featured-date2 {
+    /* border: solid 2px yellow; */
+    color:#F6B6B6;
+    font-family: Red Hat Display;
+    font-size: 40px;
+    font-weight: 700;
+    padding-left: 30px;
+}
+
+#featured-person {
+    /* border: solid 2px yellow; */
+    display: inline-flex;
+    padding: 0 30px 0 30px;
+
+    -webkit-animation: fadein var(--fade-in-time);
+    -moz-animation: fadein var(--fade-in-time);
+    -ms-animation: fadein var(--fade-in-time);
+    -o-animation: fadein var(--fade-in-time);
+    animation: fadein var(--fade-in-time);
+}
+
+.arrow-container {
+    /* border: solid 2px pink; */
+    height: min-content;
+    width: min-content;
+    margin: auto;
+    margin-left: 0;
+    cursor: pointer;
 }

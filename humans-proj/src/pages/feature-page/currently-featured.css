@@ -97,7 +97,7 @@
     position:relative;
     margin-top:90.99px;
     margin-left:330px;
-
+    object-fit: none;
 }
 
 #main_text{
@@ -134,9 +134,9 @@
 #all_medias{
     background-color: white;
     border-radius: 40px;
-    width:200px;
     height:50px;
     margin-bottom: 1rem;
+    display: grid;
 }
 
 #born{
@@ -180,6 +180,14 @@
     margin-left:17%;
     margin-right: 17%;
     text-align:left;
+}
+
+#card-icon-list {
+    margin: auto;
+}
+
+#card-icon {
+    margin: 0 !important;
 }
 
 @media only screen and (min-width : 320px) {

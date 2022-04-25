@@ -19,11 +19,10 @@ Humans:
     description: >
     description2: 
     socials: 
-      instagram:
-      facebook:
-      twitter:
-      internet:
-      <other>:
+      - 
+      - 
+      - 
+      - 
 
   - id: Date_NameLastName
     date: Date
@@ -37,10 +36,11 @@ Humans:
     description2: 
       Description2
     socials: 
-      instagram: "https://www.instagram.com/"
-      facebook: "https://www.facebook.com/"
-      twitter: "https://twitter.com/home"
-      internet: "https://www.google.ca/"
+      - "https://www.instagram.com/"
+      - "https://www.facebook.com/"
+      - "https://twitter.com/home"
+      - "https://www.google.ca/"
+      - "<other>"
 ```
 
 ## Currently Featured Files
@@ -65,7 +65,7 @@ The layout of the file and a corresponding description of each data entry is lis
 |photo_alt|An alternate text line for the photo|
 |description|An initial description for the person|
 |description2|An additional description going into more detail|
-|socials|<other>: Additional rows can be added, replace the <other> with the social media platform|
+|socials|<other>: Additional rows can be added, replace the <other> with the social media link surrounded by quotes|
 
 ## All Featured Files
 

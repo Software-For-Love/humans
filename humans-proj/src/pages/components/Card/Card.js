@@ -35,13 +35,13 @@ export default class Card extends React.Component {
 
                     {/* CARD IMAGE */}
                     <div id="card-img-div">
-                        <img id="card-img" src={this.state.src} alt={this.props.person.photo_alt} />
+                        <img id="card-img" src={this.state.src} alt={this.props.person["photo_alt"]} />
                     </div>
 
                     {/* CARD NAME */}
                     <div id="card-name-div-wrapper">
                         <div id="card-name-div">
-                            <p id="card-name">{this.props.person.photo_alt} </p>
+                            <p id="card-name">{this.props.person["photo_alt"]} </p>
                         </div>
                     </div>
 
@@ -51,10 +51,10 @@ export default class Card extends React.Component {
                         <div id="overlay-wrapper">
 
                             <Link to="/feature-page/currently-featured/" state={{ file: this.props.person }} style={{ textDecoration: "none", color: "white" }}>
-                                <p className="overlay-text" id="overlay-name"> {this.props.person.first_name + " " + this.props.person.last_name} </p>
-                                <p className="overlay-text" id="overlay-job">{this.props.person.position}</p>
+                                <p className="overlay-text" id="overlay-name"> {this.props.person["first_name"] + " " + this.props.person["last_name"]} </p>
+                                <p className="overlay-text" id="overlay-job">{this.props.person["position"]}</p>
                                 <div id="overlay-desc-wrapper">
-                                    <p className="overlay-text" id="overlay-desc">{this.props.person.description}</p>
+                                    <p className="overlay-text" id="overlay-desc">{this.props.person["description"]}</p>
                                 </div>
                             </Link>
 

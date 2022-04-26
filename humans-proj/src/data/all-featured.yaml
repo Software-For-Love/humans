@@ -4,7 +4,7 @@ Humans:
     first_name: Donald
     last_name: Duck
     position: Cranky Mage
-    img: img1.png
+    photo: img1.png
     photo_alt: Donald Duck
     description:
       We look forward to the time when the power to love will replace the love of power.
@@ -31,7 +31,7 @@ Humans:
     first_name: Goofy "The Always Goofing Around"
     last_name: Goof
     position: Loyal Knight
-    img: img2.png
+    photo: img2.png
     photo_alt: Goofy "The Always Goofing Around" Goof
     description: >
       We look forward to the time when the power to love will replace the love of power.
@@ -55,7 +55,7 @@ Humans:
     first_name: Daisy
     last_name: Duck
     position: Secret Weapon
-    img: img3.png
+    photo: img3.png
     photo_alt: Daisy Duck
     description: >
       We look forward to the time when the power to love will replace the love of power.
@@ -79,7 +79,7 @@ Humans:
     first_name: Peter
     last_name: Pete
     position: Archnemesis
-    img: img 4.png
+    photo: img 4.png
     photo_alt: Peter Pete
     description: >
       We look forward to the time when the power to love will replace the love of power.
@@ -103,7 +103,7 @@ Humans:
     first_name: Pluto
     last_name: The Dog
     position: Trustee
-    img: img1.png
+    photo: img1.png
     photo_alt: Pluto The Dog
     description: >
       We look forward to the time when the power to love will replace the love of power.
@@ -127,7 +127,7 @@ Humans:
     first_name: Minnie
     last_name: Mouse
     position: The Queen
-    img: img2.png
+    photo: img2.png
     photo_alt: Minnie Mouse
     description: >
       We look forward to the time when the power to love will replace the love of power.

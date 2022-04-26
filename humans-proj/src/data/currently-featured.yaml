@@ -2,7 +2,7 @@ id: Name_Lastname
 first_name: Name
 last_name: Lastname
 position: Journalist
-photo: /images/cf_picture.png
+photo: cf_picture.png
 photo_alt: Name Lastname
 description: >
    We look forward to the time when the power to love will replace the love of power.
@@ -15,9 +15,10 @@ description2:
     organization: adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       Tortor id aliquet lectus proin nibh nisl. Sit amet tellus cras adipiscing enim. Id
 socials: 
-  instagram: "https://www.instagram.com/"
-  facebook: "https://www.facebook.com/"
-  twitter: "https://twitter.com/home"
-  internet: "https://www.google.ca/"
-
-
+  - "https://www.instagram.com/"
+  - "https://www.facebook.com/"
+  - "https://twitter.com/home"
+  - "https://www.google.ca/"
+  - "https://www.tiktok.com/"
+  - "https://www.discord.com/"
+  - "https://www.snapchat.com/"

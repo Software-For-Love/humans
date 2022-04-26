@@ -44,7 +44,7 @@ export default function CurrFeaturePage(props) {
                 </div>
 
                 <div id="featured-info">
-                    <h1 id="main_text">{featured_data.first_name}{featured_data.last_name}</h1>
+                    <h1 id="main_text">{featured_data.first_name} {featured_data.last_name}</h1>
                     <p>
                         <button id="all_medias" style={{ gridTemplateColumns: `repeat(${socialsLength}, 1fr)` }}>
                             {

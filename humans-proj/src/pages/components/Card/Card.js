@@ -49,12 +49,13 @@ export default class Card extends React.Component {
                     {/* CARD ON-HOVER DESCRIPTION */}
                     <div id="middle">
                         <div id="overlay-wrapper">
-
                             <Link to="/feature-page/currently-featured/" state={{ file: this.props.person }} style={{ textDecoration: "none", color: "white" }}>
-                                <p className="overlay-text" id="overlay-name"> {this.props.person["first_name"] + " " + this.props.person["last_name"]} </p>
-                                <p className="overlay-text" id="overlay-job">{this.props.person["position"]}</p>
-                                <div id="overlay-desc-wrapper">
-                                    <p className="overlay-text" id="overlay-desc">{this.props.person["description"]}</p>
+                                <div id="info-wrapper">
+                                    <p className="overlay-text" id="overlay-name"> {this.props.person["first_name"] + " " + this.props.person["last_name"]} </p>
+                                    <p className="overlay-text" id="overlay-job">{this.props.person["position"]}</p>
+                                    <div id="overlay-desc-wrapper">
+                                        <p className="overlay-text" id="overlay-desc">{this.props.person["description"]}</p>
+                                    </div>
                                 </div>
                             </Link>
 

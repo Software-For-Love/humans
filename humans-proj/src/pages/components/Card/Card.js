@@ -35,7 +35,7 @@ export default class Card extends React.Component {
 
                     {/* CARD IMAGE */}
                     <div id="card-img-div">
-                        <img id="card-img" src={this.state.src} alt={this.props.person["photo_alt"]} />
+                        <img id="card-img" src={this.state.src} alt={this.props.person["photoalt"]} />
                     </div>
 
                     {/* CARD NAME */}

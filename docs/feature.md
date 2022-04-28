@@ -15,7 +15,7 @@ Humans:
     last_name: 
     position: 
     photo: 
-    photo_alt: 
+    photoalt: 
     description: >
     description2: 
     socials: 
@@ -30,7 +30,7 @@ Humans:
     last_name: Lastname
     position: Position
     photo: Photo.png
-    photo_alt: Name Lastname
+    photoalt: Name Lastname
     description: >
       Description
     description2: 
@@ -62,7 +62,7 @@ The layout of the file and a corresponding description of each data entry is lis
 |last_name|The person's last name|
 |position|The person's current job title|
 |photo|A reference photo of the person|
-|photo_alt|An alternate text line for the photo|
+|photoalt|An alternate text line for the photo|
 |description|An initial description for the person|
 |description2|An additional description going into more detail|
 |socials|<other>: Additional rows can be added, replace the <other> with the social media link surrounded by quotes|

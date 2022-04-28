@@ -3,7 +3,7 @@ first_name: Name
 last_name: Lastname
 position: Journalist
 photo: cf_picture.png
-photo_alt: Name Lastname
+photoalt: Name Lastname
 description: >
    We look forward to the time when the power to love will replace the love of power.
     Then will our world know the blessing of peace.

@@ -5,7 +5,7 @@ Humans:
     last_name: Duck
     position: Cranky Mage
     photo: img1.png
-    photo_alt: Donald Duck
+    photoalt: Donald Duck
     description:
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.
@@ -32,7 +32,7 @@ Humans:
     last_name: Goof
     position: Loyal Knight
     photo: img2.png
-    photo_alt: Goofy "The Always Goofing Around" Goof
+    photoalt: Goofy "The Always Goofing Around" Goof
     description: >
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.
@@ -56,7 +56,7 @@ Humans:
     last_name: Duck
     position: Secret Weapon
     photo: img3.png
-    photo_alt: Daisy Duck
+    photoalt: Daisy Duck
     description: >
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.
@@ -80,7 +80,7 @@ Humans:
     last_name: Pete
     position: Archnemesis
     photo: img 4.png
-    photo_alt: Peter Pete
+    photoalt: Peter Pete
     description: >
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.
@@ -104,7 +104,7 @@ Humans:
     last_name: The Dog
     position: Trustee
     photo: img1.png
-    photo_alt: Pluto The Dog
+    photoalt: Pluto The Dog
     description: >
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.
@@ -128,7 +128,7 @@ Humans:
     last_name: Mouse
     position: The Queen
     photo: img2.png
-    photo_alt: Minnie Mouse
+    photoalt: Minnie Mouse
     description: >
       We look forward to the time when the power to love will replace the love of power.
         Then will our world know the blessing of peace.

@@ -3,11 +3,13 @@ import "./Card.css"
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'gatsby';
 
+
 export default class Card extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = { src: null }
+        
     }
 
     componentDidMount() {
@@ -29,19 +31,24 @@ export default class Card extends React.Component {
 
 
     render() {
+        if (this.props.person!==undefined){
         return (
             <div id="card-wrapper">
                 <div id="card">
 
                     {/* CARD IMAGE */}
+                    
                     <div id="card-img-div">
                         <img id="card-img" src={this.state.src} alt={this.props.person["photo_alt"]} />
+                            
+                            
                     </div>
 
                     {/* CARD NAME */}
                     <div id="card-name-div-wrapper">
                         <div id="card-name-div">
-                            <p id="card-name">{this.props.person["photo_alt"]} </p>
+                                                    
+                        <p id="card-name">{this.props.person["photo_alt"]} </p>
                         </div>
                     </div>
 
@@ -86,5 +93,11 @@ export default class Card extends React.Component {
                 </div>
             </div>
         )
+        }
+                               
+
+    else{return(null)}
     }
+    
+
 }

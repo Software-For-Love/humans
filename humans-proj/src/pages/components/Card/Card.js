@@ -40,15 +40,12 @@ export default class Card extends React.Component {
                     
                     <div id="card-img-div">
                         <img id="card-img" src={this.state.src} alt={this.props.person["photo_alt"]} />
-                            
-                            
                     </div>
 
                     {/* CARD NAME */}
                     <div id="card-name-div-wrapper">
-                        <div id="card-name-div">
-                                                    
-                        <p id="card-name">{this.props.person["photo_alt"]} </p>
+                        <div id="card-name-div">                          
+                            <p id="card-name">{this.props.person["photo_alt"]} </p>
                         </div>
                     </div>
 
